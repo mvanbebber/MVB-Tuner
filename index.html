@@ -29,7 +29,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="MVB Tuner">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "MVB Tuner", "url": "https://pureintonation.com/", "description": "Free pure & just intonation tuner and chord drone. Detects the chord root and tunes every note pure. Strobe tuner, equal/pure switch, 14 sounds.", "applicationCategory": "MusicApplication", "operatingSystem": "Any (web browser)", "browserRequirements": "Requires JavaScript and Web Audio", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "featureList": ["Pure (just) intonation drone", "Equal temperament / pure toggle", "Automatic chord and root detection", "Strobe tuner with just-intonation targets", "Keyboard and tone wheel note entry", "7/4 harmonic seventh option", "Adjustable A4 reference"], "image": "https://pureintonation.com/og-image.png", "screenshot": "https://pureintonation.com/og-image.png", "author": {"@type": "Person", "name": "Michael Van Bebber", "jobTitle": "Trumpeter, pianist, singer and educator", "address": {"@type": "PostalAddress", "addressLocality": "Seattle", "addressRegion": "WA"}}}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is pure intonation?", "acceptedAnswer": {"@type": "Answer", "text": "Pure (or just) intonation tunes each note of a chord to a simple whole-number frequency ratio above the root, such as 3:2 for the fifth and 5:4 for the major third. The chord then rings without beats, unlike equal temperament, where every half step is exactly 100 cents and most intervals are slightly out of tune."}}, {"@type": "Question", "name": "How many cents should I lower a major third?", "acceptedAnswer": {"@type": "Answer", "text": "A just major third (5:4) is 13.7 cents lower than an equal-tempered major third. A minor third (6:5) is 15.6 cents higher, and a pure fifth (3:2) is only about 2 cents higher."}}, {"@type": "Question", "name": "How does the tuner know which note is the root?", "acceptedAnswer": {"@type": "Answer", "text": "Every time you add or remove a note, MVB Tuner analyzes the pitch set and names the chord, from simple triads up to chords like C13♯11♭9 or G13sus♭9. The root turns purple and stays at equal-tempered pitch; every other note is retuned relative to it."}}, {"@type": "Question", "name": "Should the dominant seventh be tuned with 7/4?", "acceptedAnswer": {"@type": "Answer", "text": "The 7/4 harmonic seventh (31.2 cents flat of equal temperament) is the most consonant seventh and is the default here. Switch to 9/5 (17.6 cents sharp) for a brighter, more conventional minor seventh."}}, {"@type": "Question", "name": "Is MVB Tuner an alternative to Tonal Energy Tuner?", "acceptedAnswer": {"@type": "Answer", "text": "It covers the two features many ensemble musicians use most in Tonal Energy, the tuner and the just-intonation drone, and adds automatic chord-root detection. It runs free in any modern browser on iPhone, Android, Mac and PC. MVB Tuner is an independent project and is not affiliated with Tonal Energy."}}, {"@type": "Question", "name": "Does it work offline and on my phone?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Open it once and you can add it to your home screen; it then loads without a connection. The microphone tuner needs permission in your browser."}}, {"@type": "Question", "name": "Can I play MVB Tuner with a MIDI keyboard?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Connect a USB MIDI keyboard, open the page in Chrome, Edge or Firefox, and tap MIDI. Every chord you play is identified and tuned to pure intonation in real time, with velocity and sustain pedal support. Safari and iPhone browsers do not support MIDI; on iPhone or iPad, the Web MIDI Browser app works."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is pure intonation?", "acceptedAnswer": {"@type": "Answer", "text": "Pure (or just) intonation tunes each note of a chord to a simple whole-number frequency ratio above the root, such as 3:2 for the fifth and 5:4 for the major third. The chord then rings without beats, unlike equal temperament, where every half step is exactly 100 cents and most intervals are slightly out of tune."}}, {"@type": "Question", "name": "How many cents should I lower a major third?", "acceptedAnswer": {"@type": "Answer", "text": "A just major third (5:4) is 13.7 cents lower than an equal-tempered major third. A minor third (6:5) is 15.6 cents higher, and a pure fifth (3:2) is only about 2 cents higher."}}, {"@type": "Question", "name": "How does the tuner know which note is the root?", "acceptedAnswer": {"@type": "Answer", "text": "Every time you add or remove a note, MVB Tuner analyzes the pitch set and names the chord, from simple triads up to chords like C13♯11♭9 or G13sus♭9. The root turns purple and stays at equal-tempered pitch; every other note is retuned relative to it."}}, {"@type": "Question", "name": "Should the dominant seventh be tuned with 7/4?", "acceptedAnswer": {"@type": "Answer", "text": "The 7/4 harmonic seventh (31.2 cents flat of equal temperament) is the most consonant seventh and is the default here. Switch to 9/5 (17.6 cents sharp) for a brighter, more conventional minor seventh."}}, {"@type": "Question", "name": "Is MVB Tuner an alternative to Tonal Energy Tuner?", "acceptedAnswer": {"@type": "Answer", "text": "It covers the two features many ensemble musicians use most in Tonal Energy, the tuner and the just-intonation drone, and adds automatic chord-root detection. It runs free in any modern browser on iPhone, Android, Mac and PC. MVB Tuner is an independent project and is not affiliated with Tonal Energy."}}, {"@type": "Question", "name": "Does it work offline and on my phone?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Open it once and you can add it to your home screen; it then loads without a connection. The microphone tuner needs permission in your browser."}}]}</script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
@@ -304,13 +304,6 @@ main>.panel:last-child{border-top:1px solid var(--line);border-top-left-radius:0
 .bk>span:not(.kf){letter-spacing:-.07em}
 .kb .kf{font-size:.95rem}@media (max-width:480px){.kb .kf{font-size:.8rem}}
 .bk .kf{font-size:.78rem}@media (max-width:480px){.bk .kf{font-size:.64rem}}
-#midiStat{font-size:.75rem;color:var(--muted);max-width:28ch;line-height:1.25}
-#midiIn{max-width:13em}
-@media (max-width:480px){#midiIn{max-width:9.5em}#midiInCtl{font-size:.66rem}#retuneCtl select{max-width:9.5em}#retuneCtl{font-size:.66rem}}
-#midiBtn.on{border-color:var(--ok);color:var(--ok)}
-#midiBtn .midilogo{display:block;height:.95em;aspect-ratio:2.656;background:currentColor;-webkit-mask:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKoAAABACAYAAACKqexmAAAEC0lEQVR42u2du4vVQBjFf5NkfbEogooPVGzcQi0VBAsrtbETRRAbO1sLG/8AxVqxsbCx0MbCQgTRWhBELMXCRmGLxRf4uDexyATjunfvIzPJJDkHlrvLvTs3c3LmfN83mUkAso7+pMBH4DlwGVhLjojRiO3rCdvGYMrvLD5/0baTlNo2pdc39nPDlvGZAu+B+8DJUt9W47TAqyp9nuQL2goDbAeOA7esYPdbssf1O3Xw3V3k0wD7gPPAE+AhsHVCTiuhy0Kl5AQD4CjwFNhSQ9+jHnCaAmeAZ8AO3/3uulCN7WMC/AL2AjcsyQahCqeR5fQQcNM3p1GPCJ6z+dEF4ID9PWroRJsOcZoC54CFEZyaZelUJqGOF0gGrAHONtj/qEO8F5wmwKkxnJqqpPUtbAEccVQ0CX8d8mAVx5RQV+7vArDeY14V9yT0lwf/DgnVPTYB6xocLHGHnXXW9yXUGTCooWrua4ogobYsVAoS6likDXOeSHrTQYQ146jla94hhebYc/uNCHUSV4oqdCrz1HbTkSoGNna0oArSUX0KpWtTOGVH+UZ+jXzeumooDj8H3CVfC5GFxn8VoX4gv9ZrRrjtHLBnSkEXBC0CS6u4TgrsprkppioYAi8CPbYvHoVaa+gvOvAdOGYFFS07CGOFNA+8BnYx+TKwov1L5Cud5lZwnZh8+ugBcNq+37YwGtLxmlJ+Gmw6lVQYHV+BH2MImDW0fQd+WsfORhD7u+LozhrkdRigUINuP6n4v2aFAymPUFOx7XiEow4Dz2E1VxpQ1V92pcyxYy3filCnGwotm0YRhE44qtBcJBtKqEIdGIgCCTXkAisj37Z9DdjMdPOVqS0kXwL3bNqWSqiCL2wArpAv3J4FeyVUwRXiMbnaIrCT6fbDD+z5+qxiSnB1MuIJeE+Y/sYNCT1dzBL1XFCChBq8UCVWCVUQ/sNQQpUBiFBhJmhRioQqSKiCePWHVIQKbYBuQCFHFaGCIKG2NQwJEmpdAh3id+WRIpVyVCfwLVTNo0qoTpAq/Cv0t8VRJVQJVRBWjGIS6gz5khxVjtp76JaSEmorqn4ZgGP0dc9Um0O/we3eqWIbd1SDOUioPcIv8h2pPm5ikXo2Bwl1htHt01Ejj20eBq5bR3UlLEN+L9ptpb8V+gMK/22sJxaAqzWkFxJqABi0OEf1eZO0xKPoFfp7Wkz1Clrm5weaR5VQnVW3ujIlofYeWubnOIpJqIIcNeBRrbAvoaqYUrojobospiRad4M+Az6N0ZRyVKFxJzXA2ynMQUIVGkmhBsBjF4KUUAUf6VPxpJbbwDvcLpT5B31ePVWELeWo1UzuDvlTXrw+paXK06UnzV1CL6aE6c67AZbIn3d1B3hUB+d/AAxQXISfVjHAAAAAAElFTkSuQmCC) center/contain no-repeat;mask:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKoAAABACAYAAACKqexmAAAEC0lEQVR42u2du4vVQBjFf5NkfbEogooPVGzcQi0VBAsrtbETRRAbO1sLG/8AxVqxsbCx0MbCQgTRWhBELMXCRmGLxRf4uDexyATjunfvIzPJJDkHlrvLvTs3c3LmfN83mUkAso7+pMBH4DlwGVhLjojRiO3rCdvGYMrvLD5/0baTlNo2pdc39nPDlvGZAu+B+8DJUt9W47TAqyp9nuQL2goDbAeOA7esYPdbssf1O3Xw3V3k0wD7gPPAE+AhsHVCTiuhy0Kl5AQD4CjwFNhSQ9+jHnCaAmeAZ8AO3/3uulCN7WMC/AL2AjcsyQahCqeR5fQQcNM3p1GPCJ6z+dEF4ID9PWroRJsOcZoC54CFEZyaZelUJqGOF0gGrAHONtj/qEO8F5wmwKkxnJqqpPUtbAEccVQ0CX8d8mAVx5RQV+7vArDeY14V9yT0lwf/DgnVPTYB6xocLHGHnXXW9yXUGTCooWrua4ogobYsVAoS6likDXOeSHrTQYQ146jla94hhebYc/uNCHUSV4oqdCrz1HbTkSoGNna0oArSUX0KpWtTOGVH+UZ+jXzeumooDj8H3CVfC5GFxn8VoX4gv9ZrRrjtHLBnSkEXBC0CS6u4TgrsprkppioYAi8CPbYvHoVaa+gvOvAdOGYFFS07CGOFNA+8BnYx+TKwov1L5Cud5lZwnZh8+ugBcNq+37YwGtLxmlJ+Gmw6lVQYHV+BH2MImDW0fQd+WsfORhD7u+LozhrkdRigUINuP6n4v2aFAymPUFOx7XiEow4Dz2E1VxpQ1V92pcyxYy3filCnGwotm0YRhE44qtBcJBtKqEIdGIgCCTXkAisj37Z9DdjMdPOVqS0kXwL3bNqWSqiCL2wArpAv3J4FeyVUwRXiMbnaIrCT6fbDD+z5+qxiSnB1MuIJeE+Y/sYNCT1dzBL1XFCChBq8UCVWCVUQ/sNQQpUBiFBhJmhRioQqSKiCePWHVIQKbYBuQCFHFaGCIKG2NQwJEmpdAh3id+WRIpVyVCfwLVTNo0qoTpAq/Cv0t8VRJVQJVRBWjGIS6gz5khxVjtp76JaSEmorqn4ZgGP0dc9Um0O/we3eqWIbd1SDOUioPcIv8h2pPm5ikXo2Bwl1htHt01Ejj20eBq5bR3UlLEN+L9ptpb8V+gMK/22sJxaAqzWkFxJqABi0OEf1eZO0xKPoFfp7Wkz1Clrm5weaR5VQnVW3ujIlofYeWubnOIpJqIIcNeBRrbAvoaqYUrojobospiRad4M+Az6N0ZRyVKFxJzXA2ynMQUIVGkmhBsBjF4KUUAUf6VPxpJbbwDvcLpT5B31ePVWELeWo1UzuDvlTXrw+paXK06UnzV1CL6aE6c67AZbIn3d1B3hUB+d/AAxQXISfVjHAAAAAAElFTkSuQmCC) center/contain no-repeat}
-#midiBtn{display:inline-flex;align-items:center;justify-content:center}
-
 </style>
 <style>body{margin:0}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}[hidden]{display:none!important}img{max-width:100%}</style>
 </head>
@@ -345,7 +338,6 @@ main>.panel:last-child{border-top:1px solid var(--line);border-top-left-radius:0
       <div class="row">
         <button class="btn primary" id="playBtn">Play drone</button>
         <button class="btn" id="clearBtn">Clear</button>
-        <button class="btn" id="midiBtn" title="Play with a MIDI keyboard" aria-label="MIDI"><span class="midilogo"></span></button><span class="ctl" id="midiStat"></span>
         <label class="ctl">Sound
           <select id="timbre">
             <optgroup label="Synth"><option value="fullsynth">Full synth</option><option value="putney">Analog drone</option></optgroup>
@@ -361,14 +353,10 @@ main>.panel:last-child{border-top:1px solid var(--line);border-top-left-radius:0
         <label class="ctl">Vol <input type="range" id="vol" min="0" max="1" step="0.01" value="0.5"></label>
         <label class="ctl">A4 <input type="number" id="a4" min="400" max="480" step="0.5" value="440"> Hz</label>
         <span class="brk" aria-hidden="true"></span>
-        <label class="ctl" id="midiInCtl" hidden>MIDI in <select id="midiIn" aria-label="MIDI input" title="MIDI input"></select></label>
-        <label class="ctl" id="retuneCtl" hidden title="When the chord root changes, held notes glide to their new pure pitch or hold their current pitch">Held
-          <select id="retune"><option value="glide">Glide</option><option value="hold">Hold</option></select>
-        </label>
         <label class="ctl sevgrp">Pure ♭7
           <select id="sev"><option value="7/4">7/4 harmonic (−31¢)</option><option value="9/5">9/5 (+18¢)</option></select>
         </label>
-        <p class="foot">Tap or play MIDI to add notes · double-tap to set the root · slide for more octaves.</p>
+        <p class="foot">Tap to add notes · double-tap to set the root · slide the keyboard for more octaves.</p>
       </div>
     </section>
 
@@ -402,7 +390,6 @@ main>.panel:last-child{border-top:1px solid var(--line);border-top-left-radius:0
     <li>Tap notes on the keyboard (slide it for all 88 keys) or the chromatic tone wheel. The drone starts on its own.</li>
     <li>Read the chord name and the cents offset on each note, for example E −13.7¢ in a C major chord.</li>
     <li>Double-tap any key to make it the root and move the whole chord there.</li>
-    <li>Connect a <strong>MIDI keyboard</strong>: plug it in by USB, open the page in Chrome, Edge or Firefox, tap the MIDI button and allow access. Choose your keyboard under <em>MIDI in</em>. Every chord you play is named and tuned pure as you play it, with velocity and sustain pedal. On iPhone or iPad, use the Web MIDI Browser app.</li>
     <li>Start the microphone and play your note. The <strong>strobe tuner</strong> bands stand still when you are in tune; in Pure mode they freeze on the just pitch, not the tempered one.</li>
   </ol>
   <h3>Just intonation cents chart</h3>
@@ -414,7 +401,7 @@ main>.panel:last-child{border-top:1px solid var(--line);border-top-left-radius:0
   <h3>Equal temperament vs. pure intonation</h3>
   <p>Equal temperament divides the octave into twelve identical half steps so a keyboard can play in every key. The cost is that thirds and sixths beat noticeably. Ensembles that sustain chords, such as wind bands, brass and saxophone sections, string quartets and choirs, adjust toward pure intervals so chords lock and ring. Practicing against a just-intonation drone trains your ear to hear and place those adjustments.</p>
   <h3>Frequently asked questions</h3>
-  <details><summary>What is pure intonation?</summary><p>Pure (or just) intonation tunes each note of a chord to a simple whole-number frequency ratio above the root, such as 3:2 for the fifth and 5:4 for the major third. The chord then rings without beats, unlike equal temperament, where every half step is exactly 100 cents and most intervals are slightly out of tune.</p></details><details><summary>How many cents should I lower a major third?</summary><p>A just major third (5:4) is 13.7 cents lower than an equal-tempered major third. A minor third (6:5) is 15.6 cents higher, and a pure fifth (3:2) is only about 2 cents higher.</p></details><details><summary>How does the tuner know which note is the root?</summary><p>Every time you add or remove a note, MVB Tuner analyzes the pitch set and names the chord, from simple triads up to chords like C13♯11♭9 or G13sus♭9. The root turns purple and stays at equal-tempered pitch; every other note is retuned relative to it.</p></details><details><summary>Should the dominant seventh be tuned with 7/4?</summary><p>The 7/4 harmonic seventh (31.2 cents flat of equal temperament) is the most consonant seventh and is the default here. Switch to 9/5 (17.6 cents sharp) for a brighter, more conventional minor seventh.</p></details><details><summary>Is MVB Tuner an alternative to Tonal Energy Tuner?</summary><p>It covers the two features many ensemble musicians use most in Tonal Energy, the tuner and the just-intonation drone, and adds automatic chord-root detection. It runs free in any modern browser on iPhone, Android, Mac and PC. MVB Tuner is an independent project and is not affiliated with Tonal Energy.</p></details><details><summary>Does it work offline and on my phone?</summary><p>Yes. Open it once and you can add it to your home screen; it then loads without a connection. The microphone tuner needs permission in your browser.</p></details><details><summary>Can I play MVB Tuner with a MIDI keyboard?</summary><p>Yes. Connect a USB MIDI keyboard, open the page in Chrome, Edge or Firefox, and tap MIDI. Every chord you play is identified and tuned to pure intonation in real time, with velocity and sustain pedal support. Safari and iPhone browsers do not support MIDI; on iPhone or iPad, the Web MIDI Browser app works.</p></details>
+  <details><summary>What is pure intonation?</summary><p>Pure (or just) intonation tunes each note of a chord to a simple whole-number frequency ratio above the root, such as 3:2 for the fifth and 5:4 for the major third. The chord then rings without beats, unlike equal temperament, where every half step is exactly 100 cents and most intervals are slightly out of tune.</p></details><details><summary>How many cents should I lower a major third?</summary><p>A just major third (5:4) is 13.7 cents lower than an equal-tempered major third. A minor third (6:5) is 15.6 cents higher, and a pure fifth (3:2) is only about 2 cents higher.</p></details><details><summary>How does the tuner know which note is the root?</summary><p>Every time you add or remove a note, MVB Tuner analyzes the pitch set and names the chord, from simple triads up to chords like C13♯11♭9 or G13sus♭9. The root turns purple and stays at equal-tempered pitch; every other note is retuned relative to it.</p></details><details><summary>Should the dominant seventh be tuned with 7/4?</summary><p>The 7/4 harmonic seventh (31.2 cents flat of equal temperament) is the most consonant seventh and is the default here. Switch to 9/5 (17.6 cents sharp) for a brighter, more conventional minor seventh.</p></details><details><summary>Is MVB Tuner an alternative to Tonal Energy Tuner?</summary><p>It covers the two features many ensemble musicians use most in Tonal Energy, the tuner and the just-intonation drone, and adds automatic chord-root detection. It runs free in any modern browser on iPhone, Android, Mac and PC. MVB Tuner is an independent project and is not affiliated with Tonal Energy.</p></details><details><summary>Does it work offline and on my phone?</summary><p>Yes. Open it once and you can add it to your home screen; it then loads without a connection. The microphone tuner needs permission in your browser.</p></details>
 </section>
 <footer class="site-foot">
   <p>Built by <strong>Michael Van Bebber</strong>, trumpeter, pianist, singer and educator in Seattle. Also by MVB: <a href="https://vibratotrainer.com" rel="noopener">Vibrato Trainer</a>.</p>
@@ -441,13 +428,10 @@ const T=[
  ['7','minor 7th',[0,10]],['maj7','major 7th',[0,11]],['','tritone',[0,6]]
 ];
 
-const S={mode:'pure',notes:new Set(),a4:440,oct:4,timbre:'fullsynth',room:'largehall',vol:.5,sev:'7/4',playing:false,keyRoot:0,tab:'keys',tmode:'easy',retune:'glide'};
-// MIDI keyboard state (declared early: the voice code reads it)
-const MIDI={access:null,held:new Set(),sus:false,susHeld:new Set(),vel:new Map(),fast:new Set(),pend:0,shown:0};
-const velGain=m=>{const v=MIDI.vel.get(m);return v==null?1:Math.max(.12,Math.pow(v/127,1.3))*1.15;};
+const S={mode:'pure',notes:new Set(),a4:440,oct:4,timbre:'fullsynth',room:'largehall',vol:.5,sev:'7/4',playing:false,keyRoot:0,tab:'keys',tmode:'easy'};
 try{const s=JSON.parse(localStorage.getItem('rr-settings-v5')||'{}');
-  if(s.mode)S.mode=s.mode; if(s.a4)S.a4=s.a4; if(s.timbre)S.timbre=s.timbre; if(s.sev)S.sev=s.sev; if(s.tab)S.tab=s.tab; if(s.tmode2)S.tmode=s.tmode2; if(s.room3)S.room=s.room3; if(s.retune)S.retune=s.retune;}catch(e){}
-const save=()=>{try{localStorage.setItem('rr-settings-v5',JSON.stringify({mode:S.mode,a4:S.a4,timbre:S.timbre,sev:S.sev,tab:S.tab,tmode2:S.tmode,room3:S.room,retune:S.retune}))}catch(e){}};
+  if(s.mode)S.mode=s.mode; if(s.a4)S.a4=s.a4; if(s.timbre)S.timbre=s.timbre; if(s.sev)S.sev=s.sev; if(s.tab)S.tab=s.tab; if(s.tmode2)S.tmode=s.tmode2; if(s.room3)S.room=s.room3;}catch(e){}
+const save=()=>{try{localStorage.setItem('rr-settings-v5',JSON.stringify({mode:S.mode,a4:S.a4,timbre:S.timbre,sev:S.sev,tab:S.tab,tmode2:S.tmode,room3:S.room}))}catch(e){}};
 const $=id=>document.getElementById(id);
 let chord=null;
 
@@ -632,7 +616,7 @@ function iosPlayback(){
 function ensureCtx(){
   iosPlayback();
   if(!ctx){const AC=window.AudioContext||window.webkitAudioContext;
-    try{ctx=new AC({latencyHint:0});}catch(e){try{ctx=new AC({latencyHint:'interactive'});}catch(e2){ctx=new AC();}}   // smallest buffer the system allows
+    try{ctx=new AC({latencyHint:'interactive'});}catch(e){ctx=new AC();}
     // output stage: a zero-delay soft clipper instead of a compressor (compressors add a fixed 6 ms look-ahead).
     // Clean and linear below about -4 dBFS, gentle rounding above, never past full scale.
     const comp=ctx.createGain();comp.gain.value=1.081/2;const clip=ctx.createWaveShaper(),N=4097,cv=new Float32Array(N);
@@ -687,16 +671,11 @@ function syncVoices(){
     let v=voices.get(m),fresh=false;
     if(!v){v=makeVoice(m);voices.set(m,v);fresh=true;}
     const f=freq(m),P=v.P;
-    if(fresh||S.retune!=='hold'){
-      v.o.frequency.setTargetAtTime(f,t,.04);
-      v.lp.frequency.setTargetAtTime(cutHz(f,P),t,.04);
-      if(v.lg) v.lg.gain.setTargetAtTime(cutHz(f,P)*P.wob,t,.04);
-      if(v.bp) v.bp.frequency.setTargetAtTime(Math.min(f*P.nb,12000),t,.04);
-    }
-    const lvl=.36*P.lvl/Math.sqrt(n)*velGain(m),g=v.env.gain;
-    if(fresh&&MIDI.fast.has(m)){   // MIDI strike: audible within 2 ms, then the sound's own swell
-      g.setValueAtTime(0,t);g.linearRampToValueAtTime(lvl*.6,t+.002);g.setTargetAtTime(lvl,t+.002,Math.min(P.att,.03)/2);
-    } else g.setTargetAtTime(lvl,t,fresh?P.att/2:.15);
+    v.o.frequency.setTargetAtTime(f,t,.04);
+    v.lp.frequency.setTargetAtTime(cutHz(f,P),t,.04);
+    if(v.lg) v.lg.gain.setTargetAtTime(cutHz(f,P)*P.wob,t,.04);
+    if(v.bp) v.bp.frequency.setTargetAtTime(Math.min(f*P.nb,12000),t,.04);
+    v.env.gain.setTargetAtTime(.36*P.lvl/Math.sqrt(n),t,fresh?P.att/2:.15);
   }
 }
 
@@ -841,13 +820,12 @@ function renderTabs(){
 function renderKeyCtl(){
   $('keyCtl').hidden=!!chord;
 }
-function render(){
+function update(){
   chord=analyze();
   renderMode();renderChord();renderStaff();renderWheel();renderKeys();renderTabs();renderKeyCtl();initKeys();
   $('playBtn').textContent=S.playing?'Stop drone':'Play drone';
-  save();
+  syncVoices();save();
 }
-function update(){render();syncVoices();}
 
 /* ---------- interaction ---------- */
 function toggleMidi(m){S.notes.has(m)?S.notes.delete(m):S.notes.add(m);autoplay();update();}
@@ -892,7 +870,7 @@ $('tModeBtn').onkeydown=e=>{const d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-
   S.tmode=TMODES[Math.min(2,Math.max(0,TMODES.indexOf(S.tmode)+d))];renderTMode();save();$('tModeBtn').querySelector('.on').focus();};
 $('modeBtn').onclick=()=>{S.mode=S.mode==='pure'?'equal':'pure';update();};
 $('playBtn').onclick=()=>{ensureCtx();S.playing=!S.playing;update();};
-$('clearBtn').onclick=()=>{S.notes.clear();MIDI.held.clear();MIDI.susHeld.clear();MIDI.vel.clear();MIDI.fast.clear();update();};
+$('clearBtn').onclick=()=>{S.notes.clear();update();};
 $('room').value=S.room;$('room').onchange=e=>{setRoom(e.target.value);save();};
 $('timbre').value=S.timbre;$('timbre').onchange=e=>{S.timbre=e.target.value;update();};
 $('vol').oninput=e=>{S.vol=+e.target.value;if(master)master.gain.setTargetAtTime(gainVal(),ctx.currentTime,.03);};
@@ -1037,77 +1015,6 @@ if(!IOS)try{navigator.permissions&&navigator.permissions.query({name:'microphone
 const firstTouch=e=>{if(e.target.closest&&e.target.closest('#micBtn'))return;removeEventListener('pointerdown',firstTouch,true);
   if(ctx&&ctx.state==='suspended')ctx.resume();if(!IOS)autoMic();};
 addEventListener('pointerdown',firstTouch,true);
-
-/* ---------- MIDI keyboard (Web MIDI: Chrome, Edge, Firefox) ---------- */
-// sound first, screen second: voices start the moment a MIDI message arrives; the redraw waits for the next frame
-function midiSchedule(){chord=analyze();syncVoices();if(!MIDI.pend)MIDI.pend=requestAnimationFrame(()=>{MIDI.pend=0;render();});}
-function revealKey(n){
-  if(S.tab!=='keys')return;const now=performance.now();if(now-MIDI.shown<250)return;
-  const k=document.querySelector('[data-m="'+n+'"]'),w=$('kbwrap');if(!k||!w)return;
-  const x=k.offsetLeft;if(x<w.scrollLeft||x>w.scrollLeft+w.clientWidth-ww){MIDI.shown=now;w.scrollTo({left:x-w.clientWidth/2,behavior:'smooth'});}
-}
-function midiNoteOn(n,v){
-  if(n<KLO||n>=KHI)return;
-  ensureCtx();S.playing=true;
-  if(ctx.state!=='running')$('midiStat').textContent='Tap the page once to turn on sound';
-  MIDI.held.add(n);MIDI.susHeld.delete(n);MIDI.vel.set(n,v);MIDI.fast.add(n);
-  if(voices.has(n))killVoice(n);            // re-strike a sustained note
-  S.notes.add(n);midiSchedule();revealKey(n);
-}
-function midiNoteOff(n){
-  MIDI.held.delete(n);
-  if(MIDI.sus){MIDI.susHeld.add(n);return;}
-  S.notes.delete(n);MIDI.vel.delete(n);MIDI.fast.delete(n);midiSchedule();
-}
-function midiSustain(on){
-  MIDI.sus=on;if(on)return;
-  MIDI.susHeld.forEach(n=>{if(!MIDI.held.has(n)){S.notes.delete(n);MIDI.vel.delete(n);MIDI.fast.delete(n);}});
-  MIDI.susHeld.clear();midiSchedule();
-}
-function onMidi(e){
-  const [st,d1,d2]=e.data,c=st&0xf0;
-  if(c===0x90&&d2>0)midiNoteOn(d1,d2);
-  else if(c===0x80||(c===0x90&&d2===0))midiNoteOff(d1);
-  else if(c===0xB0){
-    if(d1===64)midiSustain(d2>=64);
-    else if(d1===120||d1===123){MIDI.held.clear();MIDI.susHeld.clear();MIDI.vel.clear();MIDI.fast.clear();S.notes.clear();midiSchedule();}
-  }
-}
-// one input at a time from the menu; "All keyboards" skips control surfaces, whose buttons send notes
-const MIDISKIP=/mcu|mackie|hui|control surface/i;
-let midiPick=null;try{midiPick=localStorage.getItem('rr-midi-in');}catch(e){}
-// report the browser's own output delay (buffer + device), so a slow audio route is easy to spot
-function showDelay(){
-  if(!ctx||!MIDI.access)return;const ms=Math.round(((ctx.baseLatency||0)+(ctx.outputLatency||0))*1000);
-  if(ms&&!$('midiStat').textContent.startsWith('No '))$('midiStat').textContent='Sound delay ≈ '+ms+' ms';
-}
-function bindMidi(){
-  const ins=[];MIDI.access.inputs.forEach(i=>{i.onmidimessage=null;if(i.state!=='disconnected')ins.push(i);});
-  const sel=$('midiIn'),pick=ins.find(i=>i.name===midiPick);
-  sel.textContent='';const all=document.createElement('option');all.value='';all.textContent='All keyboards';sel.appendChild(all);
-  ins.forEach(i=>{const o=document.createElement('option');o.value=i.name;o.textContent=i.name;sel.appendChild(o);});
-  sel.value=pick?pick.name:'';$('midiInCtl').hidden=!ins.length;
-  ins.forEach(i=>{if(pick?i===pick:!MIDISKIP.test(i.name))i.onmidimessage=onMidi;});
-  const st=$('midiStat');st.textContent=ins.length?'':'No MIDI keyboard found. Plug one in.';
-  if(ins.length)setTimeout(showDelay,800);
-  if(ins.length&&ctx)wave(S.timbre);$('midiBtn').classList.toggle('on',!!ins.length);$('retuneCtl').hidden=!ins.length;
-}
-$('midiIn').onchange=e=>{midiPick=e.target.value;try{localStorage.setItem('rr-midi-in',midiPick)}catch(_){}
-  MIDI.held.clear();MIDI.susHeld.clear();MIDI.vel.clear();MIDI.fast.clear();MIDI.sus=false;S.notes.clear();midiSchedule();bindMidi();};
-async function connectMidi(quiet){
-  if(!navigator.requestMIDIAccess){
-    if(!quiet)$('midiStat').textContent='MIDI keyboards work in Chrome, Edge or Firefox. On iPhone or iPad, use the Web MIDI Browser app.';
-    return;
-  }
-  try{MIDI.access=await navigator.requestMIDIAccess({sysex:false});MIDI.access.onstatechange=bindMidi;bindMidi();}
-  catch(e){if(!quiet)$('midiStat').textContent='MIDI access was blocked. Allow it in the browser’s site settings.';}
-}
-$('midiBtn').onclick=()=>{ensureCtx();connectMidi(false);};
-// phones/tablets without MIDI support (all iPhone browsers): hide the button rather than show a dead end
-if(!navigator.requestMIDIAccess&&matchMedia('(pointer:coarse)').matches){$('midiBtn').hidden=true;$('midiStat').hidden=true;}
-$('retune').value=S.retune;$('retune').onchange=e=>{S.retune=e.target.value;save();update();};
-addEventListener('pointerdown',()=>{if(ctx&&ctx.state==='suspended')ctx.resume();if(MIDI.access)bindMidi();},true);
-try{navigator.permissions&&navigator.permissions.query({name:'midi'}).then(p=>{if(p.state==='granted')connectMidi(true);}).catch(()=>{});}catch(e){}
 update();
 })();
 </script>
