@@ -1,0 +1,1116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MVB Tuner – Free Pure & Just Intonation Tuner and Chord Drone</title>
+<meta name="description" content="Free pure & just intonation tuner and chord drone. Detects the chord root and tunes every note pure. Strobe tuner, equal/pure switch, 14 sounds.">
+<link rel="canonical" href="https://pureintonation.com/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Michael Van Bebber">
+<meta name="theme-color" content="#13121b">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MVB Tuner">
+<meta property="og:title" content="MVB Tuner – Free Pure & Just Intonation Tuner and Chord Drone">
+<meta property="og:description" content="Free pure & just intonation tuner and chord drone. Detects the chord root and tunes every note pure. Strobe tuner, equal/pure switch, 14 sounds.">
+<meta property="og:url" content="https://pureintonation.com/">
+<meta property="og:image" content="https://pureintonation.com/og-image.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MVB Tuner: pure intonation strobe tuner with a C7 chord tuned E −13.7¢, G +2.0¢, B♭ −31.2¢">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MVB Tuner – Free Pure & Just Intonation Tuner and Chord Drone">
+<meta name="twitter:description" content="Free pure & just intonation tuner and chord drone. Detects the chord root and tunes every note pure. Strobe tuner, equal/pure switch, 14 sounds.">
+<meta name="twitter:image" content="https://pureintonation.com/og-image.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="MVB Tuner">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "MVB Tuner", "url": "https://pureintonation.com/", "description": "Free pure & just intonation tuner and chord drone. Detects the chord root and tunes every note pure. Strobe tuner, equal/pure switch, 14 sounds.", "applicationCategory": "MusicApplication", "operatingSystem": "Any (web browser)", "browserRequirements": "Requires JavaScript and Web Audio", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "featureList": ["Pure (just) intonation drone", "Equal temperament / pure toggle", "Automatic chord and root detection", "Strobe tuner with just-intonation targets", "Keyboard and tone wheel note entry", "7/4 harmonic seventh option", "Adjustable A4 reference"], "image": "https://pureintonation.com/og-image.png", "screenshot": "https://pureintonation.com/og-image.png", "author": {"@type": "Person", "name": "Michael Van Bebber", "jobTitle": "Trumpeter, pianist, singer and educator", "address": {"@type": "PostalAddress", "addressLocality": "Seattle", "addressRegion": "WA"}}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is pure intonation?", "acceptedAnswer": {"@type": "Answer", "text": "Pure (or just) intonation tunes each note of a chord to a simple whole-number frequency ratio above the root, such as 3:2 for the fifth and 5:4 for the major third. The chord then rings without beats, unlike equal temperament, where every half step is exactly 100 cents and most intervals are slightly out of tune."}}, {"@type": "Question", "name": "How many cents should I lower a major third?", "acceptedAnswer": {"@type": "Answer", "text": "A just major third (5:4) is 13.7 cents lower than an equal-tempered major third. A minor third (6:5) is 15.6 cents higher, and a pure fifth (3:2) is only about 2 cents higher."}}, {"@type": "Question", "name": "How does the tuner know which note is the root?", "acceptedAnswer": {"@type": "Answer", "text": "Every time you add or remove a note, MVB Tuner analyzes the pitch set and names the chord, from simple triads up to chords like C13♯11♭9 or G13sus♭9. The root turns purple and stays at equal-tempered pitch; every other note is retuned relative to it."}}, {"@type": "Question", "name": "Should the dominant seventh be tuned with 7/4?", "acceptedAnswer": {"@type": "Answer", "text": "The 7/4 harmonic seventh (31.2 cents flat of equal temperament) is the most consonant seventh and is the default here. Switch to 9/5 (17.6 cents sharp) for a brighter, more conventional minor seventh."}}, {"@type": "Question", "name": "Is MVB Tuner an alternative to Tonal Energy Tuner?", "acceptedAnswer": {"@type": "Answer", "text": "It covers the two features many ensemble musicians use most in Tonal Energy, the tuner and the just-intonation drone, and adds automatic chord-root detection. It runs free in any modern browser on iPhone, Android, Mac and PC. MVB Tuner is an independent project and is not affiliated with Tonal Energy."}}, {"@type": "Question", "name": "Does it work offline and on my phone?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Open it once and you can add it to your home screen; it then loads without a connection. The microphone tuner needs permission in your browser."}}, {"@type": "Question", "name": "Can I play MVB Tuner with a MIDI keyboard?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Connect a USB MIDI keyboard, open the page in Chrome, Edge or Firefox, and tap MIDI. Every chord you play is identified and tuned to pure intonation in real time, with velocity and sustain pedal support. Safari and iPhone browsers do not support MIDI; on iPhone or iPad, the Web MIDI Browser app works."}}]}</script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single dark instrument column — temperament switch on top, tone generator, then tuner */
+:root{
+  --bg:#13121b; --panel:#1c1b27; --raise:#262434; --line:#322f44;
+  --fg:#eceaf4; --muted:#9b97b0;
+  --root:#a96dff; --root-soft:rgba(169,109,255,.2);
+  --note:#e8b44a; --note-ink:#1c1405;
+  --ok:#4fd18b; --warn:#ff6e61;
+  --display:"Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme:dark;
+}
+html,body{background:var(--bg);color:var(--fg)}
+body{font-family:var(--display)}
+.app{max-width:760px;margin:0 auto;padding-block:20px 40px;padding-inline:16px;display:grid;gap:18px}
+header{display:flex;flex-wrap:nowrap;align-items:flex-start;justify-content:space-between;gap:12px}
+header>div:first-child{min-width:0}
+h1{margin:0;font-size:1.7rem;font-weight:700;letter-spacing:-.01em}
+h1 span{color:var(--root)}
+.sub{margin:2px 0 0;color:var(--muted);font-size:.85rem}
+button,select,input{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--root);outline-offset:2px}
+
+.mode{position:relative;display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);background:var(--raise);border-radius:999px;padding:4px;min-width:230px}
+.mode span{position:relative;z-index:1;text-align:center;font-weight:700;letter-spacing:.12em;font-size:.85rem;padding:11px 18px;color:var(--muted);transition:color .2s}
+.mode::before{content:"";position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:999px;background:var(--fg);transition:transform .22s ease,background .22s}
+.mode[aria-checked="true"]::before{transform:translateX(100%);background:var(--root)}
+.mode[aria-checked="false"] .t,.mode[aria-checked="true"] .p{color:var(--bg)}
+.mode[aria-checked="true"] .p{color:#fff}
+@media (max-width:480px){.mode{min-width:170px}.mode span{padding:9px 8px;font-size:.72rem;letter-spacing:.06em}.sub{display:none}.panelhead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.modehint{display:none}h1{font-size:1.4rem;white-space:nowrap}}
+.panelhead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.modehint{font-family:var(--mono);font-size:.72rem;color:var(--muted);text-align:right;margin:4px 0 0}
+
+main{display:grid;gap:18px;grid-template-columns:1fr}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:14px;align-content:start;min-width:0}
+.panel h2{margin:0;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:500;font-family:var(--mono)}
+
+/* tuner */
+.strobe{display:block;width:100%;height:150px;border-radius:10px;background:#09080d;box-shadow:inset 0 0 0 1px var(--line),inset 0 8px 18px rgba(0,0,0,.7)}
+.legend{font-family:var(--mono);font-size:.7rem;color:var(--muted);text-align:center;margin:-4px 0 0}
+.readout{display:flex;align-items:flex-end;justify-content:center;gap:18px;flex-wrap:wrap}
+.big{font-size:4.2rem;font-weight:700;line-height:.9}
+.big sub{font-size:1.4rem;color:var(--muted);vertical-align:baseline}
+.cents{font-family:var(--mono);font-size:1.6rem;font-variant-numeric:tabular-nums;min-width:5ch}
+.cents.ok{color:var(--ok)} .cents.off{color:var(--warn)}
+.meta{font-family:var(--mono);font-size:.8rem;color:var(--muted);text-align:center;line-height:1.6}
+.meta b{color:var(--fg);font-weight:500}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{border:1px solid var(--line);background:var(--raise);border-radius:10px;padding:9px 14px;font-weight:500}
+.btn.primary{background:var(--root);border-color:var(--root);color:#fff}
+.notice{font-size:.85rem;color:var(--warn);margin:0}
+label.ctl{display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--muted)}
+select,input[type=number]{background:var(--raise);border:1px solid var(--line);border-radius:8px;padding:6px 8px}
+input[type=number]{width:5.2em;font-family:var(--mono)}
+input[type=range]{accent-color:var(--root);width:100px}
+
+/* chord */
+.chord{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.chord .name{font-size:2rem;font-weight:700}
+.chord .name .r{color:var(--root)}
+.chord .q{color:var(--muted);font-size:.9rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--mono);font-size:.78rem;padding:5px 9px;border-radius:7px;background:var(--note);color:var(--note-ink);font-variant-numeric:tabular-nums}
+.chip.root{background:var(--root);color:#fff}
+.chip.empty{background:var(--raise);color:var(--muted)}
+
+.tabs{display:flex;gap:4px;background:var(--raise);border-radius:10px;padding:4px;justify-self:start}
+.tabs button{border:0;background:none;padding:7px 16px;border-radius:7px;font-weight:500;color:var(--muted)}
+.tabs button[aria-selected="true"]{background:var(--panel);color:var(--fg)}
+
+.wheel{width:100%;max-width:360px;justify-self:center;touch-action:manipulation}
+.wheel .seg{cursor:pointer;stroke:var(--panel);stroke-width:2}
+.wheel .seg path{fill:var(--raise);transition:fill .15s}
+.wheel .seg:hover path{filter:brightness(1.15)}
+.wheel .seg.on path{fill:var(--note)}
+.wheel .seg.root path{fill:var(--root)}
+.wheel text{stroke:none;pointer-events:none;text-anchor:middle;dominant-baseline:middle}
+.wheel .nm{font-size:12px;font-weight:700;fill:var(--fg)}
+.wheel .seg.on .nm{fill:var(--note-ink)} .wheel .seg.root .nm{fill:#fff}
+.wheel .cc{font-family:var(--mono);font-size:7px;fill:var(--note-ink)}
+.wheel .seg.root .cc{fill:#fff}
+.wheel .ctr{font-size:15px;font-weight:700;fill:var(--fg)}
+.wheel .ctr2{font-family:var(--mono);font-size:7.5px;fill:var(--muted)}
+
+.kbwrap{--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .13 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  position:relative;overflow-x:auto;overflow-y:hidden;border-radius:9px;padding:12px 6px 8px;cursor:grab;
+  background:linear-gradient(#15131b,#0b0a0f);box-shadow:inset 0 3px 8px rgba(0,0,0,.7),inset 0 0 0 1px var(--line);scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.kbwrap.drag{cursor:grabbing}
+.kb{position:relative;height:120px;display:flex;width:max-content;user-select:none;-webkit-user-select:none;touch-action:pan-x}
+.kb::before{content:"";position:absolute;left:-6px;right:-6px;top:-5px;height:5px;z-index:3;background:linear-gradient(#7a1d2c,#3a0c15);box-shadow:0 2px 3px rgba(0,0,0,.6)}
+.wk{flex:0 0 var(--ww,28px);position:relative;box-sizing:border-box;border-radius:0 0 5px 5px;cursor:pointer;
+  background-color:#f4f0e6;background-image:var(--grain),linear-gradient(to bottom,rgba(0,0,0,.22) 0,rgba(0,0,0,0) 9px,rgba(0,0,0,0) 70%,rgba(0,0,0,.08) 100%);
+  border-left:1px solid rgba(0,0,0,.28);border-right:1px solid rgba(255,255,255,.35);
+  box-shadow:inset 0 -5px 5px -4px rgba(0,0,0,.12),0 3px 3px rgba(0,0,0,.55);
+  display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:1px;padding-bottom:11px;
+  font-family:var(--mono);font-size:.5rem;color:#6e6757;transition:transform .05s}
+.wk:active{transform:translateY(1px);box-shadow:inset 0 -3px 0 rgba(0,0,0,.1),0 1px 1px rgba(0,0,0,.5)}
+.bk{position:absolute;top:0;height:63%;z-index:2;border-radius:0 0 3px 3px;cursor:pointer;
+  background-color:#141317;background-image:var(--grain),linear-gradient(to bottom,#45434c 0,#1c1b21 10%,#0d0c10 78%,#34333b 90%,#151418 100%);
+  box-shadow:inset 1px 0 0 rgba(255,255,255,.1),inset -1px 0 0 rgba(0,0,0,.7),0 4px 5px rgba(0,0,0,.6);
+  display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding-bottom:10px;
+  font-family:var(--mono);font-size:.45rem;color:#ddd9ea}
+.bk:active{height:62%}
+.wk.on,.bk.on{background-color:var(--note);color:var(--note-ink)}
+.wk.root,.bk.root{background-color:var(--root);color:#fff}
+.bk.on,.bk.root{background-image:var(--grain),linear-gradient(to bottom,rgba(0,0,0,.18) 0,rgba(0,0,0,0) 10%,rgba(0,0,0,0) 88%,rgba(0,0,0,.14) 100%)}
+.wk,.bk{overflow:hidden;white-space:nowrap}
+.kb .c{font-weight:600;font-size:.7rem;color:#4a4537}
+.wk.on .c,.wk.root .c{color:inherit}
+#paneKeys,#paneWheel{min-width:0}
+.kbwrap{max-width:100%}
+.octbar{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.octbar button{width:34px;height:30px;padding:0}
+.foot{color:var(--muted);font-size:.78rem;line-height:1.5;max-width:70ch;margin:0}
+@media (prefers-reduced-motion:reduce){.mode::before,.mode span,.wheel .seg path{transition:none}}
+
+.learn{display:grid;gap:12px;color:var(--fg);line-height:1.6;max-width:70ch;padding-top:8px}
+.learn h2{font-size:1.35rem;margin:8px 0 0;text-wrap:balance}
+.learn h3{font-size:1.05rem;margin:14px 0 0}
+.learn p,.learn ol{margin:0;color:var(--muted)}
+.learn strong{color:var(--fg);font-weight:500}
+.learn ol{padding-left:1.2em;display:grid;gap:4px}
+.tablewrap{overflow-x:auto}
+.learn table{border-collapse:collapse;width:100%;max-width:440px;font-family:var(--mono);font-size:.85rem;font-variant-numeric:tabular-nums}
+.learn th,.learn td{text-align:left;padding:6px 10px;border-bottom:1px solid var(--line)}
+.learn th{color:var(--muted);font-weight:500}
+.learn td:last-child{text-align:right}.learn th:last-child{text-align:right}
+details{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:var(--panel)}
+summary{cursor:pointer;font-weight:500}
+details p{margin-top:8px!important}
+.site-foot{border-top:1px solid var(--line);padding-top:16px;color:var(--muted);font-size:.85rem}
+.site-foot p{margin:0 0 6px}.site-foot a{color:var(--root)}.site-foot .fine{font-size:.75rem}
+
+/* compact layout */
+.app{padding-block:10px 32px;gap:12px}
+main{gap:12px}
+.panel{padding:14px 16px;gap:10px}
+.panelhead{align-items:baseline;justify-content:flex-start;gap:2px 12px}
+.panelhead h1{font-size:1.5rem;margin:0}
+.panelhead .sub{margin:0}
+.chordrow{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;min-height:38px}
+.chord .name{font-size:1.6rem;line-height:1.1}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.bar .mode{min-width:0}
+.mode span{padding:8px 16px}
+.wheel{max-width:280px}
+.kb{height:104px}
+.strobe{height:112px}
+.legend{margin:-4px 0 0}
+.tunrow{display:flex;align-items:center;justify-content:center;gap:6px 22px;flex-wrap:wrap}
+.big{font-size:3rem}
+.big sub{font-size:1.1rem}
+.cents{font-size:1.4rem}
+.tunrow .meta{text-align:left}
+.tunctl{justify-content:center}
+.tunctl .mode{min-width:0}
+@media (max-width:480px){.foot{display:none}.strobe{height:92px}.kb{height:96px}.panel{padding:12px;gap:8px}.app{gap:10px}.big{font-size:2.4rem}.row{gap:8px}.btn{padding:8px 12px}.tabs button{padding:6px 10px;font-size:.85rem}.bar{flex-wrap:nowrap}.bar .mode span{padding:7px 8px}}
+.panelhead h1{display:flex;align-items:baseline;gap:0;white-space:pre}
+.logo{width:1.35em;height:1.35em;flex:none;border-radius:22%;margin-right:8px;align-self:center}
+.staff{flex:none;height:120px;width:auto;max-width:60%;margin-left:auto;overflow:visible}
+.staff .ln{stroke:var(--muted);stroke-width:1;opacity:.75}
+.staff .cl{fill:var(--fg)}
+.staff .ac{fill:var(--fg)}
+.staff .sym{fill:var(--fg);font-family:var(--display);font-weight:700}.staff .sym .r{fill:var(--root)}
+.staff .hd{fill:var(--note)}.staff .hd.root{fill:var(--root)}
+.chordrow{align-items:center;flex-wrap:nowrap}
+.chordrow .cgrp{flex:1 1 auto}
+.chordrow .cgrp{display:flex;flex-direction:column;gap:6px;min-width:0}
+@media (max-width:480px){.staff{height:104px}}
+.chip{background:var(--fc,var(--note))}
+.chip .fn{font-weight:700;margin-right:2px}
+.wk.on,.bk.on{background-color:var(--fc,var(--note))}
+.wheel .seg.on path{fill:var(--fc,var(--note))}
+.staff .hd{fill:var(--fc,var(--note))}
+.wk.root,.bk.root{background-color:var(--root)}.wheel .seg.root path{fill:var(--root)}.staff .hd.root{fill:var(--root)}.chip.root{background:var(--root)}
+.chip{color:var(--fi,var(--note-ink))}
+.wk.on,.bk.on{color:var(--fi,var(--note-ink))}
+.wheel .seg.on .nm,.wheel .seg.on .cc{fill:var(--fi,var(--note-ink))}
+.chordrow{align-items:flex-start}
+.staff{margin-top:-46px}
+@media (max-width:480px){.staff{margin-top:-34px}}
+.kb .kf{font-family:var(--display);font-weight:700;font-size:.78rem;line-height:1}
+@media (max-width:480px){.kb .kf{font-size:.66rem}}
+#sevLbl{font-size:.82rem;color:var(--muted)}@media (max-width:480px){#sevLbl{font-size:.72rem}}
+.mode span{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.brk{flex-basis:100%;height:0}@media (max-width:480px){.brk{display:none}}.sevgrp{display:inline-flex;align-items:center;gap:8px}
+.mode.sev{min-width:0}.mode.sev span{padding:6px 12px;letter-spacing:.04em}
+.row .foot{flex:1 1 220px;margin-left:6px}
+/* notation centered in the app: chord name left, staff in the middle column */
+.chordrow{display:grid;grid-template-columns:1fr auto 1fr;align-items:start}
+.chordrow .cgrp{grid-column:1}
+.chordrow .staff{grid-column:2;margin-left:0;max-width:none}
+.chordrow .cgrp{display:contents}
+.chordrow .chord{grid-column:1;grid-row:1;align-self:start}
+.chordrow .staff{grid-row:1}
+.chordrow .chips{grid-column:3;grid-row:1;justify-content:flex-end;align-content:flex-start;margin-top:-46px}
+@media (max-width:480px){.chordrow .chips{margin-top:-34px;gap:3px}}
+/* bigger staff */
+.chordrow .staff{height:160px}
+.chordrow .chips{flex-direction:column-reverse;flex-wrap:nowrap;align-items:flex-end;justify-content:flex-start;min-height:160px;margin-top:-46px;gap:5px}
+.chordrow .chip{white-space:nowrap}
+@media (max-width:480px){.chordrow .chips{min-height:128px;gap:3px}}
+@media (max-width:480px){.chordrow .staff{height:128px;margin-top:-6px}.chordrow .chips{margin-top:-6px}.chordrow .chord{flex-direction:column;align-items:flex-start;gap:0}}
+.supportrow{display:flex;justify-content:center}
+.bar{display:grid;grid-template-columns:1fr auto 1fr;flex-wrap:nowrap}
+.bar .tabs{justify-self:start}.bar .mode{justify-self:end}
+.bar .support{padding:6px 14px;font-size:.85rem;gap:6px}.bar .support .heart{width:15px;height:15px}
+@media (max-width:480px){.bar{gap:5px}.bar .tabs button{white-space:nowrap;padding:5px 7px}.bar .mode{min-width:0}.bar .mode span{padding:6px 7px}.bar .support{padding:6px;border-radius:50%}.bar .support .lbl{display:none}.bar .support .heart{width:14px;height:14px}}
+@media (max-width:375px){.bar{gap:4px}.bar .tabs button{padding:5px 5px;font-size:.72rem}.bar .mode span{padding:6px 5px;font-size:.6rem;letter-spacing:.03em}}
+.support{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border:1px solid var(--line);border-radius:999px;background:var(--raise);color:var(--fg);text-decoration:none;font-weight:600}
+.support:hover{border-color:#e5484d}
+.support .heart{width:18px;height:18px;fill:#e5484d}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* phone: edge-to-edge cards, one-screen layout */
+@media (max-width:480px){
+  .app{padding-inline:0;padding-block:4px 24px;gap:6px}
+  main{gap:6px}
+  .panel{border-radius:0;border-left:0;border-right:0;padding:8px 10px;gap:6px}
+  .panelhead h1{font-size:1.15rem}
+  .chordrow{min-height:0;gap:4px 8px}
+  .chord{gap:6px}
+  .chord .name{font-size:1.15rem}
+  .chord .q{font-size:.72rem}
+  .chip{font-size:.66rem;padding:3px 6px}
+  .tabs{padding:3px}
+  .tabs button{padding:5px 9px;font-size:.78rem}
+  .mode span{padding:6px 8px;font-size:.66rem;letter-spacing:.05em}
+  .kbwrap{padding:8px 4px 5px}
+  .wk{padding-bottom:9px;font-size:.42rem;overflow:hidden}
+  .bk{font-size:.36rem;padding-bottom:7px;overflow:hidden}
+  .kb .c{font-size:.58rem;letter-spacing:-.02em}
+  .row{gap:6px}
+  .btn{padding:6px 10px;font-size:.85rem;border-radius:8px}
+  label.ctl{font-size:.72rem;gap:4px}
+  select,input[type=number]{padding:4px 6px;font-size:.8rem}
+  input[type=number]{width:4.2em}
+  input[type=range]{width:64px}
+  #tunerH{font-size:.62rem}
+  .strobe{height:68px;border-radius:6px}
+  .legend{font-size:.58rem;margin:-3px 0 0}
+  .tunrow{gap:2px 12px}
+  .big{font-size:1.9rem}
+  .big sub{font-size:.8rem}
+  .cents{font-size:1.05rem;min-width:4.5ch}
+  .meta{font-size:.66rem;line-height:1.4}
+  .tunctl{gap:6px}
+  .learn{padding-inline:16px}
+  .site-foot{padding-inline:16px}
+}
+
+/* one merged card: drone and tuner share a single panel */
+main{gap:0!important}
+main>.panel:first-child{border-bottom:0;border-bottom-left-radius:0!important;border-bottom-right-radius:0!important;padding-bottom:6px!important}
+main>.panel:last-child{border-top:1px solid var(--line);border-top-left-radius:0!important;border-top-right-radius:0!important;padding-top:8px!important}
+.meta:empty{display:none}
+@media (max-width:480px){.tunctl{flex-wrap:nowrap}.tunctl .btn{white-space:nowrap}.tunctl .mode span{padding:6px 8px}}
+.seclbl,#tunerH{text-align:center}
+.seclbl{margin:-4px 0 -6px!important}
+.mode.tri{grid-template-columns:repeat(3,1fr);min-width:0;cursor:pointer}
+.mode.tri span{padding:8px 12px;letter-spacing:.06em;color:var(--muted)}
+.mode.tri span.on{color:var(--bg)}
+.mode.tri::before{width:calc((100% - 8px)/3);background:var(--fg)}
+.mode.tri[data-i="1"]::before{transform:translateX(100%)}
+.mode.tri[data-i="2"]::before{transform:translateX(200%)}
+@media (max-width:480px){.mode.tri span{padding:6px 6px;font-size:.62rem;letter-spacing:.03em}.tunctl .btn{padding:6px 9px;font-size:.8rem}}
+.bk .kf{font-size:.66rem;letter-spacing:-.04em}@media (max-width:480px){.bk .kf{font-size:.56rem}}
+.bk>span:not(.kf){letter-spacing:-.07em}
+.kb .kf{font-size:.95rem}@media (max-width:480px){.kb .kf{font-size:.8rem}}
+.bk .kf{font-size:.78rem}@media (max-width:480px){.bk .kf{font-size:.64rem}}
+#midiStat{font-size:.75rem;color:var(--muted);max-width:28ch;line-height:1.25}
+#midiIn{max-width:13em}
+@media (max-width:480px){#midiIn{max-width:9.5em}#midiInCtl{font-size:.66rem}#retuneCtl select{max-width:9.5em}#retuneCtl{font-size:.66rem}}
+#midiBtn.on{border-color:var(--ok);color:var(--ok)}
+#midiBtn .midilogo{display:block;height:.95em;aspect-ratio:2.656;background:currentColor;-webkit-mask:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKoAAABACAYAAACKqexmAAAEC0lEQVR42u2du4vVQBjFf5NkfbEogooPVGzcQi0VBAsrtbETRRAbO1sLG/8AxVqxsbCx0MbCQgTRWhBELMXCRmGLxRf4uDexyATjunfvIzPJJDkHlrvLvTs3c3LmfN83mUkAso7+pMBH4DlwGVhLjojRiO3rCdvGYMrvLD5/0baTlNo2pdc39nPDlvGZAu+B+8DJUt9W47TAqyp9nuQL2goDbAeOA7esYPdbssf1O3Xw3V3k0wD7gPPAE+AhsHVCTiuhy0Kl5AQD4CjwFNhSQ9+jHnCaAmeAZ8AO3/3uulCN7WMC/AL2AjcsyQahCqeR5fQQcNM3p1GPCJ6z+dEF4ID9PWroRJsOcZoC54CFEZyaZelUJqGOF0gGrAHONtj/qEO8F5wmwKkxnJqqpPUtbAEccVQ0CX8d8mAVx5RQV+7vArDeY14V9yT0lwf/DgnVPTYB6xocLHGHnXXW9yXUGTCooWrua4ogobYsVAoS6likDXOeSHrTQYQ146jla94hhebYc/uNCHUSV4oqdCrz1HbTkSoGNna0oArSUX0KpWtTOGVH+UZ+jXzeumooDj8H3CVfC5GFxn8VoX4gv9ZrRrjtHLBnSkEXBC0CS6u4TgrsprkppioYAi8CPbYvHoVaa+gvOvAdOGYFFS07CGOFNA+8BnYx+TKwov1L5Cud5lZwnZh8+ugBcNq+37YwGtLxmlJ+Gmw6lVQYHV+BH2MImDW0fQd+WsfORhD7u+LozhrkdRigUINuP6n4v2aFAymPUFOx7XiEow4Dz2E1VxpQ1V92pcyxYy3filCnGwotm0YRhE44qtBcJBtKqEIdGIgCCTXkAisj37Z9DdjMdPOVqS0kXwL3bNqWSqiCL2wArpAv3J4FeyVUwRXiMbnaIrCT6fbDD+z5+qxiSnB1MuIJeE+Y/sYNCT1dzBL1XFCChBq8UCVWCVUQ/sNQQpUBiFBhJmhRioQqSKiCePWHVIQKbYBuQCFHFaGCIKG2NQwJEmpdAh3id+WRIpVyVCfwLVTNo0qoTpAq/Cv0t8VRJVQJVRBWjGIS6gz5khxVjtp76JaSEmorqn4ZgGP0dc9Um0O/we3eqWIbd1SDOUioPcIv8h2pPm5ikXo2Bwl1htHt01Ejj20eBq5bR3UlLEN+L9ptpb8V+gMK/22sJxaAqzWkFxJqABi0OEf1eZO0xKPoFfp7Wkz1Clrm5weaR5VQnVW3ujIlofYeWubnOIpJqIIcNeBRrbAvoaqYUrojobospiRad4M+Az6N0ZRyVKFxJzXA2ynMQUIVGkmhBsBjF4KUUAUf6VPxpJbbwDvcLpT5B31ePVWELeWo1UzuDvlTXrw+paXK06UnzV1CL6aE6c67AZbIn3d1B3hUB+d/AAxQXISfVjHAAAAAAElFTkSuQmCC) center/contain no-repeat;mask:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKoAAABACAYAAACKqexmAAAEC0lEQVR42u2du4vVQBjFf5NkfbEogooPVGzcQi0VBAsrtbETRRAbO1sLG/8AxVqxsbCx0MbCQgTRWhBELMXCRmGLxRf4uDexyATjunfvIzPJJDkHlrvLvTs3c3LmfN83mUkAso7+pMBH4DlwGVhLjojRiO3rCdvGYMrvLD5/0baTlNo2pdc39nPDlvGZAu+B+8DJUt9W47TAqyp9nuQL2goDbAeOA7esYPdbssf1O3Xw3V3k0wD7gPPAE+AhsHVCTiuhy0Kl5AQD4CjwFNhSQ9+jHnCaAmeAZ8AO3/3uulCN7WMC/AL2AjcsyQahCqeR5fQQcNM3p1GPCJ6z+dEF4ID9PWroRJsOcZoC54CFEZyaZelUJqGOF0gGrAHONtj/qEO8F5wmwKkxnJqqpPUtbAEccVQ0CX8d8mAVx5RQV+7vArDeY14V9yT0lwf/DgnVPTYB6xocLHGHnXXW9yXUGTCooWrua4ogobYsVAoS6likDXOeSHrTQYQ146jla94hhebYc/uNCHUSV4oqdCrz1HbTkSoGNna0oArSUX0KpWtTOGVH+UZ+jXzeumooDj8H3CVfC5GFxn8VoX4gv9ZrRrjtHLBnSkEXBC0CS6u4TgrsprkppioYAi8CPbYvHoVaa+gvOvAdOGYFFS07CGOFNA+8BnYx+TKwov1L5Cud5lZwnZh8+ugBcNq+37YwGtLxmlJ+Gmw6lVQYHV+BH2MImDW0fQd+WsfORhD7u+LozhrkdRigUINuP6n4v2aFAymPUFOx7XiEow4Dz2E1VxpQ1V92pcyxYy3filCnGwotm0YRhE44qtBcJBtKqEIdGIgCCTXkAisj37Z9DdjMdPOVqS0kXwL3bNqWSqiCL2wArpAv3J4FeyVUwRXiMbnaIrCT6fbDD+z5+qxiSnB1MuIJeE+Y/sYNCT1dzBL1XFCChBq8UCVWCVUQ/sNQQpUBiFBhJmhRioQqSKiCePWHVIQKbYBuQCFHFaGCIKG2NQwJEmpdAh3id+WRIpVyVCfwLVTNo0qoTpAq/Cv0t8VRJVQJVRBWjGIS6gz5khxVjtp76JaSEmorqn4ZgGP0dc9Um0O/we3eqWIbd1SDOUioPcIv8h2pPm5ikXo2Bwl1htHt01Ejj20eBq5bR3UlLEN+L9ptpb8V+gMK/22sJxaAqzWkFxJqABi0OEf1eZO0xKPoFfp7Wkz1Clrm5weaR5VQnVW3ujIlofYeWubnOIpJqIIcNeBRrbAvoaqYUrojobospiRad4M+Az6N0ZRyVKFxJzXA2ynMQUIVGkmhBsBjF4KUUAUf6VPxpJbbwDvcLpT5B31ePVWELeWo1UzuDvlTXrw+paXK06UnzV1CL6aE6c67AZbIn3d1B3hUB+d/AAxQXISfVjHAAAAAAElFTkSuQmCC) center/contain no-repeat}
+#midiBtn{display:inline-flex;align-items:center;justify-content:center}
+
+</style>
+<style>body{margin:0}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}[hidden]{display:none!important}img{max-width:100%}</style>
+</head>
+<body>
+<div class="app">
+  <main>
+    <section class="panel" aria-labelledby="appTitle">
+      <div class="panelhead">
+        <h1 id="appTitle"><svg class="logo" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="lgb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a2470"/><stop offset="1" stop-color="#0c0b12"/></linearGradient><linearGradient id="lgf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffcf4"/><stop offset="1" stop-color="#c4bed2"/></linearGradient></defs><rect width="64" height="64" rx="14" fill="url(#lgb)"/><g fill="none" stroke="#c4a0ff" stroke-width="2.6" stroke-linecap="round"><path d="M45 16a15 15 0 0 1 0 12"/><path d="M19 16a15 15 0 0 0 0 12"/></g><g fill="url(#lgf)"><rect x="24" y="10" width="5" height="27" rx="2.5"/><rect x="35" y="10" width="5" height="27" rx="2.5"/><path d="M24 34a8 8 0 0 0 16 0h-5a3 3 0 0 1-6 0z"/><rect x="30" y="41" width="4" height="10"/><circle cx="32" cy="53" r="3.2"/></g></svg>MVB <span>Tuner</span></h1>
+      </div>
+      <div class="chordrow">
+        <div class="cgrp">
+          <div class="chord"><div class="name" id="chordName">–</div><div class="q" id="chordQ"></div></div>
+          <div class="chips" id="chips"></div>
+        </div>
+        <svg class="staff" id="staff" role="img" aria-label="Grand staff showing the selected notes"></svg>
+      </div>
+      <div class="bar">
+        <div class="tabs" role="tablist">
+          <button role="tab" id="tabKeys" aria-selected="true">Keyboard</button>
+          <button role="tab" id="tabWheel" aria-selected="false">Tone wheel</button>
+        </div>
+        <a class="support" href="https://venmo.com/u/Michael-VanBebber" target="_blank" rel="noopener" title="Support MVB Tuner on Venmo (@Michael-VanBebber)"><svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 2.9 4.5 6.6 4.5c2.1 0 3.6 1.1 4.4 2.5.8-1.4 2.3-2.5 4.4-2.5 3.7 0 5.7 3.9 4.2 7.3C19.5 16.4 12 21 12 21z"/></svg><span class="lbl">Support</span></a>
+        <button class="mode" id="modeBtn" role="switch" aria-checked="true" aria-label="Pure intonation" title="Toggle equal / pure (just) tuning"><span class="t">EQUAL</span><span class="p">PURE/JUST</span></button>
+      </div>
+      <div id="paneWheel">
+        <svg class="wheel" id="wheel" viewBox="-110 -110 220 220" role="group" aria-label="Chromatic tone wheel"></svg>
+      </div>
+      <div id="paneKeys" hidden>
+        <div class="kbwrap" id="kbwrap"><div class="kb" id="kb"></div></div>
+      </div>
+      <div class="row">
+        <button class="btn primary" id="playBtn">Play drone</button>
+        <button class="btn" id="clearBtn">Clear</button>
+        <button class="btn" id="midiBtn" title="Play with a MIDI keyboard" aria-label="MIDI"><span class="midilogo"></span></button><span class="ctl" id="midiStat"></span>
+        <label class="ctl">Sound
+          <select id="timbre">
+            <optgroup label="Synth"><option value="fullsynth">Full synth</option><option value="putney">Analog drone</option></optgroup>
+            <optgroup label="Waveforms"><option value="warmsquare">Warm square</option><option value="warmsaw">Warm saw</option><option value="warmtri">Warm triangle</option><option value="droppedsaw">Soft saw</option><option value="sine">Sine</option></optgroup>
+            <optgroup label="Organ &amp; keys"><option value="organ">Organ</option><option value="pipeorgan">Pipe organ</option><option value="epiano">Electric piano</option><option value="celeste">Celeste</option></optgroup>
+            <optgroup label="Ensemble"><option value="strings">Strings</option><option value="brass">Brass</option><option value="trombone">Trombone</option></optgroup>
+            <optgroup label="Voices"><option value="choirah">Choir "ah"</option><option value="choirooh">Choir "ooh"</option><option value="voiceo">Voice "oh"</option></optgroup>
+          </select>
+        </label>
+        <label class="ctl">Room
+          <select id="room"><option value="off">Dry</option><option value="studio">Studio</option><option value="hall">Hall</option><option value="kilbourn">Kilbourn Hall</option><option value="largehall">Large Hall</option><option value="warehouse">Warehouse</option><option value="cathedral">Cathedral</option></select>
+        </label>
+        <label class="ctl">Vol <input type="range" id="vol" min="0" max="1" step="0.01" value="0.5"></label>
+        <label class="ctl">A4 <input type="number" id="a4" min="400" max="480" step="0.5" value="440"> Hz</label>
+        <span class="brk" aria-hidden="true"></span>
+        <label class="ctl" id="midiInCtl" hidden>MIDI in <select id="midiIn" aria-label="MIDI input" title="MIDI input"></select></label>
+        <label class="ctl" id="retuneCtl" hidden title="When the chord root changes, held notes glide to their new pure pitch or hold their current pitch">Held
+          <select id="retune"><option value="glide">Glide</option><option value="hold">Hold</option></select>
+        </label>
+        <label class="ctl sevgrp">Pure ♭7
+          <select id="sev"><option value="7/4">7/4 harmonic (−31¢)</option><option value="9/5">9/5 (+18¢)</option></select>
+        </label>
+        <p class="foot">Tap or play MIDI to add notes · double-tap to set the root · slide for more octaves.</p>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="tunerH">
+      <h2 id="tunerH" class="vh">Strobe tuner</h2>
+      <canvas class="strobe" id="strobe" role="img" aria-label="Strobe tuner display"></canvas>
+      <p class="legend">Bands stand still in tune · drift right = sharp · left = flat</p>
+      <div class="tunrow">
+        <div class="readout">
+          <div class="big" id="tNote">–</div>
+          <div class="cents" id="tCents">±0¢</div>
+        </div>
+        <div class="meta" id="tMeta"></div>
+      </div>
+      <div class="row tunctl">
+        <button class="btn primary" id="micBtn">Start microphone</button>
+        <div class="mode tri" id="tModeBtn" role="radiogroup" aria-label="Tuner sensitivity" data-i="1"><span role="radio" data-m="easy">EASY</span><span role="radio" data-m="normal">NORMAL</span><span role="radio" data-m="expert">EXPERT</span></div>
+        <label class="ctl" id="keyCtl" title="Root used for pure tuning when no chord is entered">Ref
+          <select id="keySel"></select>
+        </label>
+      </div>
+      <p class="notice" id="micMsg" hidden></p>
+    </section>
+  </main>
+
+<section class="learn" aria-labelledby="aboutH">
+  <h2 id="aboutH">A free pure intonation tuner and drone</h2>
+  <p>MVB Tuner is a browser-based <strong>just intonation tuner</strong> and <strong>chord drone</strong> for band, orchestra, choir and jazz musicians. Play any chord on the keyboard or tone wheel and it identifies the chord, marks the root in purple, and tunes every other note to its pure ratio above that root. Flip the <strong>Equal / Pure</strong> switch to hear exactly how far each note moves.</p>
+  <h3>How to use it</h3>
+  <ol>
+    <li>Tap notes on the keyboard (slide it for all 88 keys) or the chromatic tone wheel. The drone starts on its own.</li>
+    <li>Read the chord name and the cents offset on each note, for example E −13.7¢ in a C major chord.</li>
+    <li>Double-tap any key to make it the root and move the whole chord there.</li>
+    <li>Connect a <strong>MIDI keyboard</strong>: plug it in by USB, open the page in Chrome, Edge or Firefox, tap the MIDI button and allow access. Choose your keyboard under <em>MIDI in</em>. Every chord you play is named and tuned pure as you play it, with velocity and sustain pedal. On iPhone or iPad, use the Web MIDI Browser app.</li>
+    <li>Start the microphone and play your note. The <strong>strobe tuner</strong> bands stand still when you are in tune; in Pure mode they freeze on the just pitch, not the tempered one.</li>
+  </ol>
+  <h3>Just intonation cents chart</h3>
+  <p>How far each pure interval sits from equal temperament, measured from the chord root:</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th scope="col">Interval</th><th scope="col">Ratio</th><th scope="col">Cents vs. equal</th></tr></thead>
+    <tbody><tr><td>Unison</td><td>1/1</td><td>0</td></tr><tr><td>Minor 2nd</td><td>16/15</td><td>+11.7</td></tr><tr><td>Major 2nd</td><td>9/8</td><td>+3.9</td></tr><tr><td>Minor 3rd</td><td>6/5</td><td>+15.6</td></tr><tr><td>Major 3rd</td><td>5/4</td><td>−13.7</td></tr><tr><td>Perfect 4th</td><td>4/3</td><td>−2.0</td></tr><tr><td>Tritone</td><td>45/32</td><td>−9.8</td></tr><tr><td>Perfect 5th</td><td>3/2</td><td>+2.0</td></tr><tr><td>Minor 6th</td><td>8/5</td><td>+13.7</td></tr><tr><td>Major 6th</td><td>5/3</td><td>−15.6</td></tr><tr><td>Harmonic 7th</td><td>7/4</td><td>−31.2</td></tr><tr><td>Minor 7th</td><td>9/5</td><td>+17.6</td></tr><tr><td>Major 7th</td><td>15/8</td><td>−11.7</td></tr><tr><td>Octave</td><td>2/1</td><td>0</td></tr></tbody>
+  </table></div>
+  <h3>Equal temperament vs. pure intonation</h3>
+  <p>Equal temperament divides the octave into twelve identical half steps so a keyboard can play in every key. The cost is that thirds and sixths beat noticeably. Ensembles that sustain chords, such as wind bands, brass and saxophone sections, string quartets and choirs, adjust toward pure intervals so chords lock and ring. Practicing against a just-intonation drone trains your ear to hear and place those adjustments.</p>
+  <h3>Frequently asked questions</h3>
+  <details><summary>What is pure intonation?</summary><p>Pure (or just) intonation tunes each note of a chord to a simple whole-number frequency ratio above the root, such as 3:2 for the fifth and 5:4 for the major third. The chord then rings without beats, unlike equal temperament, where every half step is exactly 100 cents and most intervals are slightly out of tune.</p></details><details><summary>How many cents should I lower a major third?</summary><p>A just major third (5:4) is 13.7 cents lower than an equal-tempered major third. A minor third (6:5) is 15.6 cents higher, and a pure fifth (3:2) is only about 2 cents higher.</p></details><details><summary>How does the tuner know which note is the root?</summary><p>Every time you add or remove a note, MVB Tuner analyzes the pitch set and names the chord, from simple triads up to chords like C13♯11♭9 or G13sus♭9. The root turns purple and stays at equal-tempered pitch; every other note is retuned relative to it.</p></details><details><summary>Should the dominant seventh be tuned with 7/4?</summary><p>The 7/4 harmonic seventh (31.2 cents flat of equal temperament) is the most consonant seventh and is the default here. Switch to 9/5 (17.6 cents sharp) for a brighter, more conventional minor seventh.</p></details><details><summary>Is MVB Tuner an alternative to Tonal Energy Tuner?</summary><p>It covers the two features many ensemble musicians use most in Tonal Energy, the tuner and the just-intonation drone, and adds automatic chord-root detection. It runs free in any modern browser on iPhone, Android, Mac and PC. MVB Tuner is an independent project and is not affiliated with Tonal Energy.</p></details><details><summary>Does it work offline and on my phone?</summary><p>Yes. Open it once and you can add it to your home screen; it then loads without a connection. The microphone tuner needs permission in your browser.</p></details><details><summary>Can I play MVB Tuner with a MIDI keyboard?</summary><p>Yes. Connect a USB MIDI keyboard, open the page in Chrome, Edge or Firefox, and tap MIDI. Every chord you play is identified and tuned to pure intonation in real time, with velocity and sustain pedal support. Safari and iPhone browsers do not support MIDI; on iPhone or iPad, the Web MIDI Browser app works.</p></details>
+</section>
+<footer class="site-foot">
+  <p>Built by <strong>Michael Van Bebber</strong>, trumpeter, pianist, singer and educator in Seattle. Also by MVB: <a href="https://vibratotrainer.com" rel="noopener">Vibrato Trainer</a>.</p>
+  <p class="fine">Instrument wavetables and room impulse responses: <a href="https://github.com/GoogleChromeLabs/web-audio-samples" rel="noopener">Google Chrome Labs web-audio-samples</a> (Apache 2.0).</p>
+  <p class="fine">Version 64 · © 2026 Michael Van Bebber. All rights reserved.</p>
+</footer>
+</div>
+<script>
+(() => {
+const NAMES=['C','D♭','D','E♭','E','F','F♯','G','A♭','A','B♭','B'];
+const IVN=['unison','minor 2nd','major 2nd','minor 3rd','major 3rd','perfect 4th','tritone','perfect 5th','minor 6th','major 6th','minor 7th','major 7th'];
+const JUST={0:1,1:16/15,2:9/8,3:6/5,4:5/4,5:4/3,6:45/32,7:3/2,8:8/5,9:5/3,10:9/5,11:15/8};
+// templates in priority order: [symbol, long name, intervals]
+const T=[
+ ['maj7','major 7th',[0,4,7,11]],['7','dominant 7th',[0,4,7,10]],['m7','minor 7th',[0,3,7,10]],
+ ['6','major 6th',[0,4,7,9]],['m6','minor 6th',[0,3,7,9]],['ø7','half-diminished',[0,3,6,10]],
+ ['°7','diminished 7th',[0,3,6,9]],['m(maj7)','minor-major 7th',[0,3,7,11]],
+ ['9','dominant 9th',[0,2,4,7,10]],['maj9','major 9th',[0,2,4,7,11]],['m9','minor 9th',[0,2,3,7,10]],
+ ['add9','add 9',[0,2,4,7]],['m(add9)','minor add 9',[0,2,3,7]],['7sus4','7 sus 4',[0,5,7,10]],
+ ['','major',[0,4,7]],['m','minor',[0,3,7]],['°','diminished',[0,3,6]],['+','augmented',[0,4,8]],
+ ['sus4','sus 4',[0,5,7]],['sus2','sus 2',[0,2,7]],
+ ['7','dominant 7th (no 5th)',[0,4,10]],['maj7','major 7th (no 5th)',[0,4,11]],['m7','minor 7th (no 5th)',[0,3,10]],
+ ['5','perfect 5th',[0,7]],['','major 3rd',[0,4]],['m','minor 3rd',[0,3]],['','major 2nd (9th)',[0,2]],
+ ['7','minor 7th',[0,10]],['maj7','major 7th',[0,11]],['','tritone',[0,6]]
+];
+
+const S={mode:'pure',notes:new Set(),a4:440,oct:4,timbre:'fullsynth',room:'largehall',vol:.5,sev:'7/4',playing:false,keyRoot:0,tab:'keys',tmode:'easy',retune:'glide'};
+// MIDI keyboard state (declared early: the voice code reads it)
+const MIDI={access:null,held:new Set(),sus:false,susHeld:new Set(),vel:new Map(),fast:new Set(),pend:0,shown:0};
+const velGain=m=>{const v=MIDI.vel.get(m);return v==null?1:Math.max(.12,Math.pow(v/127,1.3))*1.15;};
+try{const s=JSON.parse(localStorage.getItem('rr-settings-v5')||'{}');
+  if(s.mode)S.mode=s.mode; if(s.a4)S.a4=s.a4; if(s.timbre)S.timbre=s.timbre; if(s.sev)S.sev=s.sev; if(s.tab)S.tab=s.tab; if(s.tmode2)S.tmode=s.tmode2; if(s.room3)S.room=s.room3; if(s.retune)S.retune=s.retune;}catch(e){}
+const save=()=>{try{localStorage.setItem('rr-settings-v5',JSON.stringify({mode:S.mode,a4:S.a4,timbre:S.timbre,sev:S.sev,tab:S.tab,tmode2:S.tmode,room3:S.room,retune:S.retune}))}catch(e){}};
+const $=id=>document.getElementById(id);
+let chord=null;
+
+/* ---------- chord analysis ---------- */
+const DEG=['1','♭9','9','♯9','3','11','♯11','5','♭13','13','7','maj7'];
+// name a pitch-class set from one candidate root, jazz-style (e.g. 13♯11♭9, 13sus♭9)
+function nameFor(r,pcs){
+  const I=new Set(pcs.map(p=>(p-r+12)%12));I.delete(0);
+  const h=x=>I.has(x),used=new Set();
+  const third=h(4)?4:h(3)?3:0;if(third)used.add(third);
+  let sus='';if(!third){if(h(5)){sus='sus';used.add(5);}else if(h(2)){sus='sus2';used.add(2);}}
+  const fifth=h(7);if(fifth)used.add(7);
+  const sev=h(10)?10:h(11)?11:0;if(sev)used.add(sev);
+  const dim=third===3&&!fifth&&h(6);if(dim)used.add(6);
+  const dim7=dim&&!sev&&h(9);if(dim7)used.add(9);
+  const aug=third===4&&!fifth&&h(8);if(aug)used.add(8);
+  const n9=h(2)&&!used.has(2),n11=h(5)&&!used.has(5),n13=h(9)&&!used.has(9);
+  const b9=h(1),s9=h(3)&&third===4,s11=h(6)&&!used.has(6),b13=h(8)&&!used.has(8);
+  [n9&&2,n11&&5,n13&&9,b9&&1,s9&&3,s11&&6,b13&&8].forEach(x=>{if(x)used.add(x)});
+  let sym='',ext='';
+  if(sev){
+    ext=n13?'13':(n11&&third!==4)?'11':n9?'9':'7';
+    if(dim&&sev===10) sym=ext==='7'?'ø7':'m'+ext+'♭5';
+    else if(sev===11) sym=dim?'°maj'+ext:third===3?`m(maj${ext})`:'maj'+ext;
+    else sym=(third===3?'m':'')+ext;
+    if(aug) sym+='♯5';
+    if(sus) sym+=sus;
+    if(n11&&third===4&&ext!=='11') sym+='(add11)';
+  } else {
+    sym=dim7?'°7':dim?'°':aug?'+':third===3?'m':third?'':sus?sus:(fifth?'5':'(no3)');
+    if(!third&&sus==='sus2'&&n13) sym='6/9';
+    else if(n13) sym+=n9?'6/9':'6'; else if(n9) sym+='add9';
+    if(n11) sym+='add11';
+  }
+  const alts=[];
+  if(b13) alts.push(sev?'♭13':'♭6');
+  if(s11) alts.push(!fifth&&third===4&&!(n9||n11||n13||b9||s9)?'♭5':'♯11');
+  if(s9) alts.push('♯9');
+  if(b9) alts.push('♭9');
+  sym+=alts.join('');
+  const odd=[...I].filter(x=>!used.has(x));
+  if(odd.length) sym+='(add'+odd.map(x=>DEG[x]).join(',')+')';
+  let score=(third?20:sus?-4:-20)+((fifth||dim||aug)?6:0)-7*alts.length-10*odd.length-(sev===11&&third===3?6:0);
+  const simple=!alts.length&&!odd.length&&!n9&&!n11&&!n13&&(third||sus);
+  const q=dim7?'diminished 7th':dim&&sev===10?'half-diminished':dim&&sev===11?'diminished major':dim?'diminished':aug&&!sev?'augmented':
+    sev===11?(third===3?'minor-major':'major'):sev===10?(third===3?'minor':sus?'suspended dominant':'dominant'):
+    third===3?'minor':third===4?'major':sus?'suspended':'open 5th';
+  const long=q+(sev&&!dim7&&!(dim&&sev===10&&ext==='7')?' '+ext+'th':'')+(alts.length?' · '+alts.join(' '):'');
+  return {root:r,sym,long,ivs:[0,...I],score,simple,aug,dim,exact:!odd.length};
+}
+function analyze(){
+  const c=analyze0();
+  if(c&&c.root!=null){c.rs=pickRoot(c);if(c.slash)c.long+=' · '+spellPc(c.bass,c)+' in bass';}
+  return c;
+}
+function analyze0(){
+  if(!S.notes.size) return null;
+  const midis=[...S.notes].sort((a,b)=>a-b);
+  const bass=midis[0]%12;
+  const pcs=[...new Set(midis.map(m=>m%12))];
+  if(pcs.length===1) return {root:pcs[0],sym:'',long:midis.length>1?'octaves':'single note',ivs:[0],exact:true,bass};
+  if(pcs.length===2){
+    let best=null;
+    for(const r of pcs){const ivs=pcs.map(p=>(p-r+12)%12).sort((a,b)=>a-b);
+      T.forEach(([sym,long,t],i)=>{if(t.length!==2||t[1]!==ivs[1])return;
+        const sc=(r===bass?50:0)-i*.5+(t[1]===6?0:100);
+        if(!best||sc>best.score) best={root:r,sym,long,ivs,exact:true,score:sc,bass};});}
+    return best;
+  }
+  let best=null;
+  for(const r of pcs){
+    const c=nameFor(r,pcs);
+    c.score+=r===bass?30:(c.simple?25:-15);
+    if(!best||c.score>best.score) best=c;
+  }
+  best.bass=bass;best.slash=best.root!==bass;
+  return best;
+}
+// spell a pitch class inside a chord: letter from the interval above the root, so F♯7/C♯ (not D♭), G♭maj7 has F
+function pcSpell(pc,c){
+  const [rl]=c.rs||RSPELL[c.root],iv=(pc-c.root+12)%12,h=new Set(c.ivs||[]),sym=c.sym||'';
+  let st=[0,1,1,2,2,3,3,4,5,5,6,6][iv];
+  if(iv===3&&h.has(4))st=1;
+  if(iv===6&&(c.dim||sym.includes('♭5')))st=4;
+  if(iv===8&&(c.aug||sym.includes('♯5')))st=4;
+  if(iv===9&&sym.startsWith('°7'))st=6;
+  const L=(rl+st)%7;return [L,((pc-NATPC[L])%12+18)%12-6];
+}
+const ACCS={'-2':'𝄫','-1':'♭','0':'','1':'♯','2':'𝄪'};
+function spellPc(pc,c){if(!c||c.root==null)return NAMES[pc];const [L,a]=pcSpell(pc,c);return LETTERS[L]+(ACCS[a]||'');}
+// choose F♯ or G♭, D♭ or C♯ etc. for the root: whichever spells the whole chord (and bass) with fewer accidentals
+function pickRoot(c){
+  const d=RSPELL[c.root];if(!d[1])return d;
+  const alt=d[1]<0?[(d[0]+6)%7,1]:[(d[0]+1)%7,-1];
+  const pcs=new Set((c.ivs||[0]).map(i=>(i+c.root)%12));if(c.bass!=null)pcs.add(c.bass);
+  const cost=rs=>{let n=0;pcs.forEach(pc=>{const a=Math.abs(pcSpell(pc,{...c,rs})[1]);n+=a===2?3:a;});return n;};
+  const ca=cost(alt),cd=cost(d);if(ca!==cd)return ca<cd?alt:d;
+  // a tie (G♭/B♭ vs F♯/A♯): follow the bass note's usual spelling
+  const bs=RSPELL[c.bass!=null?c.bass:c.root][1];if(!bs)return d;
+  return Math.sign(pcSpell(c.bass!=null?c.bass:c.root,{...c,rs:alt})[1])===Math.sign(bs)?alt:d;
+}
+const rootName=c=>c.rs?LETTERS[c.rs[0]]+(ACCS[c.rs[1]]||''):NAMES[c.root];
+const slashTxt=c=>c.slash?'/'+spellPc(c.bass,c):'';
+function ratio(iv){
+  const h=new Set(chord?chord.ivs:[]);
+  if(iv===6 && chord && chord.dim) return 64/45;
+  if(iv===8 && chord && chord.aug) return 25/16;
+  if(iv===10 && S.sev==='7/4' && h.has(4)) return 7/4;
+  return JUST[iv];
+}
+const rootPc=()=>chord?chord.root:S.keyRoot;
+function offset(pc){ // cents away from ET
+  if(S.mode!=='pure') return 0;
+  const iv=(pc-rootPc()+12)%12;
+  return 1200*Math.log2(ratio(iv))-iv*100;
+}
+const freq=m=>S.a4*Math.pow(2,(m-69)/12)*Math.pow(2,offset(m%12)/1200);
+const fmtC=c=>{const r=Math.round(c);return (r===0?'±0':(r>0?'+':'−')+Math.abs(r))+'¢';};
+const nn=m=>NAMES[m%12]+(Math.floor(m/12)-1);
+
+/* ---------- audio ---------- */
+let ctx=null,master=null,waves={};const voices=new Map();
+const IOS=/iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+// iOS lowers playback while the mic is open; compensate, then rebuild audio when the mic closes
+const gainVal=()=>S.vol*.5*(IOS&&micOn?4:1);let micOn=false;
+function resetAudio(){
+  const was=S.playing;
+  voices.forEach(v=>v.srcs.forEach(x=>{try{x.stop()}catch(e){}}));voices.clear();
+  try{ctx&&ctx.close();}catch(e){}
+  ctx=null;master=null;waves={};noiseBuf=null;wetBus=null;rooms={};
+  if(was){ensureCtx();syncVoices();}
+}
+// Wavetables measured from real instruments and analog synths: Google Chrome Labs web-audio-samples (Apache 2.0)
+const TABLES={"warmsquare":[[.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0],[.0,1.0,.0,.5774,.0,.4472,.0,.378,.0,.3333,.0,.3015,.0,.2773,.0,.2582,.0,.2425,.0,.2294,.0,.2182,.0,.2085,.0,.2,.0,.1925,.0,.1857,.0,.1796,.0,.1741,.0,.169,.0,.1644,.0,.1601,.0,.1562,.0,.1525,.0,.1491,.0,.1459,.0,.1429,.0,.14,.0,.1374,.0,.1348,.0,.1325,.0,.1302,.0,.128,.0,.126,.0,.124,.0,.1222,.0,.1204,.0,.1187,.0,.117,.0,.1155,.0,.114,.0,.1125,.0,.1111,.0,.1098,.0,.1085,.0,.1072,.0,.106,.0,.1048,.0,.1037,.0,.1026,.0,.1015,.0,.1005,.0,.0995,.0,.0985,.0,.0976,.0,.0967,.0,.0958,.0,.0949,.0,.0941,.0,.0933,.0,.0924,.0,.0917,.0,.0909,.0,.0902,.0,.0894,.0,.0887,.0,.088,.0,.0874,.0,.0867,.0,.0861,.0,.0854,.0,.0848,.0,.0842,.0,.0836,.0,.083,.0,.0825,.0,.0819,.0,.0814,.0,.0808,.0,.0803,.0,.0798,.0,.0793]],"warmsaw":[[.0,.0,-.7071,.0,-.5,.0,-.4082,.0,-.3536,.0,-.3162,.0,-.2887,.0,-.2673,.0,-.25,.0,-.2357,.0,-.2236,.0,-.2132,.0,-.2041,.0,-.1961,.0,-.189,.0,-.1826,.0,-.1768,.0,-.1715,.0,-.1667,.0,-.1622,.0,-.1581,.0,-.1543,.0,-.1508,.0,-.1474,.0,-.1443,.0,-.1414,.0,-.1387,.0,-.1361,.0,-.1336,.0,-.1313,.0,-.1291,.0,-.127,.0,-.125,.0,-.1231,.0,-.1213,.0,-.1195,.0,-.1179,.0,-.1162,.0,-.1147,.0,-.1132,.0,-.1118,.0,-.1104,.0,-.1091,.0,-.1078,.0,-.1066,.0,-.1054,.0,-.1043,.0,-.1031,.0,-.1021,.0,-.101,.0,-.1,.0,-.099,.0,-.0981,.0,-.0971,.0,-.0962,.0,-.0953,.0,-.0945,.0,-.0937,.0,-.0928,.0,-.0921,.0,-.0913,.0,-.0905,.0,-.0898,.0,-.0891,.0,-.0884,.0,-.0877,.0,-.087,.0,-.0864,.0,-.0857,.0,-.0851,.0,-.0845,.0,-.0839,.0,-.0833,.0,-.0828,.0,-.0822,.0,-.0817,.0,-.0811,.0,-.0806,.0,-.0801,.0,-.0796,.0],[.0,1.0,-.0,.5773,-.0,.4472,-.0,.378,-.0,.3333,-.0,.3015,-.0,.2774,-.0,.2582,-.0,.2425,-.0,.2294,-.0,.2182,-.0,.2085,-.0,.2,-.0,.1924,-.0,.1857,-.0,.1796,-.0,.1741,-.0,.169,-.0,.1644,-.0,.1601,-.0,.1562,-.0,.1525,-.0,.1491,-.0,.1459,-.0,.1429,-.0,.14,-.0,.1374,-.0,.1348,-.0,.1325,-.0,.1302,-.0,.128,-.0,.126,-.0,.124,-.0,.1222,-.0,.1204,-.0,.1187,-.0,.117,-.0,.1155,-.0,.114,-.0,.1125,-.0,.1111,-.0,.1098,-.0,.1085,-.0,.1072,-.0,.106,-.0,.1048,-.0,.1037,-.0,.1026,-.0,.1015,-.0,.1005,-.0,.0995,-.0,.0985,-.0,.0976,-.0,.0967,-.0,.0958,-.0,.0949,-.0,.0941,-.0,.0933,-.0,.0924,-.0,.0917,-.0,.0909,-.0,.0902,-.0,.0894,-.0,.0887,-.0,.088,-.0,.0874,-.0,.0867,-.0,.0861,-.0,.0854,-.0,.0848,-.0,.0842,-.0,.0836,-.0,.083,-.0,.0825,-.0,.0819,-.0,.0814,-.0,.0808,-.0,.0803,-.0,.0798,-.0,.0793]],"warmtri":[[.0,1.0,-.0,.3333,-.0,.2,-.0,.1429,-.0,.1111,-.0,.0909,-.0,.0769,-.0,.0667,-.0,.0588,-.0,.0526,-.0,.0476,-.0,.0435,-.0,.04,.0,.037,-.0,.0345,-.0,.0323,-.0,.0303,.0,.0286,-.0,.027,-.0,.0256,-.0,.0244,.0,.0233,-.0,.0222,-.0,.0213,-.0,.0204,.0,.0196,.0,.0189,-.0,.0182,-.0,.0175,.0,.0169,-.0,.0164,-.0,.0159,-.0,.0154,-.0,.0149,.0,.0145,-.0,.0141,-.0,.0137,-.0,.0133,-.0,.013,-.0,.0127,-.0,.0123,-.0,.012,.0,.0118,-.0,.0115,-.0,.0112,-.0,.011,-.0,.0108,.0,.0105,-.0,.0103,-.0,.0101,.0,.0099,-.0,.0097,.0,.0095,-.0,.0093,-.0,.0092,.0,.009,-.0,.0088,-.0,.0087,.0,.0085,-.0,.0084,-.0,.0083,-.0,.0081,-.0,.008,.0,.0079,-.0,.0078,-.0,.0076,-.0,.0075,-.0,.0074,.0,.0073,-.0,.0072,-.0,.0071,.0,.007,-.0,.0069,-.0,.0068,-.0,.0067,-.0,.0066,-.0,.0065,-.0,.0065,-.0,.0064,.0,.0063],[.0,-1.0,-.0,-.3333,-.0,-.2,-.0,-.1429,-.0,-.1111,-.0,-.0909,-.0,-.0769,-.0,-.0667,-.0,-.0588,-.0,-.0526,-.0,-.0476,-.0,-.0435,-.0,-.04,-.0,-.037,-.0,-.0345,-.0,-.0323,-.0,-.0303,-.0,-.0286,-.0,-.027,-.0,-.0256,-.0,-.0244,-.0,-.0233,-.0,-.0222,-.0,-.0213,-.0,-.0204,-.0,-.0196,-.0,-.0189,-.0,-.0182,-.0,-.0175,-.0,-.0169,-.0,-.0164,-.0,-.0159,-.0,-.0154,-.0,-.0149,-.0,-.0145,-.0,-.0141,-.0,-.0137,-.0,-.0133,-.0,-.013,-.0,-.0127,-.0,-.0123,-.0,-.012,-.0,-.0118,-.0,-.0115,-.0,-.0112,-.0,-.011,-.0,-.0108,-.0,-.0105,-.0,-.0103,-.0,-.0101,-.0,-.0099,-.0,-.0097,-.0,-.0095,-.0,-.0093,-.0,-.0092,-.0,-.009,-.0,-.0088,-.0,-.0087,-.0,-.0085,-.0,-.0084,-.0,-.0083,-.0,-.0081,-.0,-.008,-.0,-.0079,-.0,-.0078,-.0,-.0076,-.0,-.0075,-.0,-.0074,-.0,-.0073,-.0,-.0072,-.0,-.0071,-.0,-.007,-.0,-.0069,-.0,-.0068,-.0,-.0067,-.0,-.0066,-.0,-.0065,-.0,-.0065,-.0,-.0064,-.0,-.0063]],"droppedsaw":[[.0,.0,-1.0,.0,-.7071,.0,-.5774,.0,-.5,.0,-.4472,.0,-.4082,.0,-.378,.0,-.3536,.0,-.3333,.0,-.3162,.0,-.3015,.0,-.2887,.0,-.2773,.0,-.2673,.0,-.2582,.0,-.25,.0,-.2425,.0,-.2357,.0,-.2294,.0,-.2236,.0,-.2182,.0,-.2132,.0,-.2085,.0,-.2041,.0,-.2,.0,-.1961,.0,-.1924,.0,-.189,.0,-.1857,.0,-.1826,.0,-.1796,.0,-.1768,.0,-.1741,.0,-.1715,.0,-.169,.0,-.1667,.0,-.1644,.0,-.1622,.0,-.1601,.0,-.1581,.0,-.1562,.0,-.1543,.0,-.1525,.0,-.1508,.0,-.1491,.0,-.1474,.0,-.1459,.0,-.1443,.0,-.1429,.0,-.1414,.0,-.14,.0,-.1387,.0,-.1374,.0,-.1361,.0,-.1348,.0,-.1336,.0,-.1325,.0,-.1313,.0,-.1302,.0,-.1291,.0,-.128,.0,-.127,.0,-.126,.0,-.125,.0,-.124,.0,-.1231,.0,-.1222,.0,-.1213,.0,-.1204,.0,-.1195,.0,-.1187,.0,-.1179,.0,-.117,.0,-.1162,.0,-.1155,.0,-.1147,.0,-.114,.0,-.1132,.0,-.1125,.0],[.0,.3536,-.0,.8165,-.0,.6325,-.0,.5345,-.0,.4714,-.0,.4264,-.0,.3922,-.0,.3651,-.0,.343,-.0,.3244,-.0,.3086,-.0,.2949,-.0,.2828,-.0,.2722,-.0,.2626,-.0,.254,-.0,.2462,-.0,.239,-.0,.2325,-.0,.2265,-.0,.2209,-.0,.2157,-.0,.2108,-.0,.2063,-.0,.202,-.0,.198,-.0,.1943,-.0,.1907,-.0,.1873,-.0,.1841,-.0,.1811,-.0,.1782,-.0,.1754,-.0,.1728,-.0,.1703,-.0,.1678,-.0,.1655,-.0,.1633,-.0,.1612,-.0,.1591,-.0,.1571,-.0,.1552,-.0,.1534,-.0,.1516,-.0,.1499,-.0,.1483,-.0,.1466,-.0,.1451,-.0,.1436,-.0,.1421,-.0,.1407,-.0,.1393,-.0,.138,-.0,.1367,-.0,.1355,-.0,.1342,-.0,.133,-.0,.1319,-.0,.1307,-.0,.1296,-.0,.1286,-.0,.1275,-.0,.1265,-.0,.1255,-.0,.1245,-.0,.1236,-.0,.1226,-.0,.1217,-.0,.1208,-.0,.12,-.0,.1191,-.0,.1183,-.0,.1174,-.0,.1166,-.0,.1159,-.0,.1151,-.0,.1143,-.0,.1136,-.0,.1129,-.0,.1122]],"organ":[[.0,-.0,-.2138,.0533,-.7025,.0134,-.0085,.0053,-.1072,.0033,-.0021,.0017,-.0012,.001,-.0008,.0007,-.094,.0004,-.0003,.0002,-.0002,.0002,-.0002,.0002,-.0002,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0589,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0046,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0012],[.0,1.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0001,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0]],"pipeorgan":[[.0,-.0,-.3603,.1801,-.0898,.0397,-.0208,.0151,-.0146,.0137,-.0075,.0276,-.0005,.0021,-.001,.0009,-.0009,.0011,-.0007,.0013,-.0008,.0013,-.0013,.0004,-.0042,.0023,-.0007,.002,-.0007,.0286,-.0034,.0237,-.0002,.0026,-.0017,.0025,-.0002,.0005,-.0006,.0016,-.001,.0007,-.001,.0011,-.0009,.0012,-.0004,.0003,-.0007,.0103,-.001,.0071,-.0008,.0003,-.0003,.0004,-.0006,.0001,-.0006,.0009,-.0003,.0009,-.0006,.0006,-.0006,.0007,-.0005,.0004,-.0001,.0008,-.0005,.0011,-.0001,.0001,-.0003,.0003,-.0003,.0001,-.0002,.0002,-.0003,.0002,-.0003,.0003,-.0001,.0,-.0004,.0001,-.0003,.0004,-.0003,.0005,-.0002,.0002,-.0003,.0002,-.0001,.0002,-.0002,.0002,-.0002,.0002,-.0004,.0001,-.0002,.0001,-.0002,.0002,-.0003,.0005,-.0001,.0001,-.0002,.0003,-.0001,.0,-.0002,.0004,-.0002,.0002,-.0001,.0,-.0003,.0002,-.0003,.0003,-.0002,.0002,-.0003,.0001,-.0004,.0002,-.0001,.0001,-.0002,.0003,-.0002,.0001,-.0002,.0001,-.0003,.0001,-.0003,.0002,-.0002,.0001,-.0001,.0001,-.0002,.0001,-.0001,.0001,-.0001,.0002,-.0002,.0001,-.0002,.0003,-.0001,.0001],[.0,1.0,-.0,.0,-.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,-.0,.0,.0,.0,.0,.0,-.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,-.0,.0,-.0,.0,.0,.0,.0,.0,-.0,.0,.0,.0,-.0,.0,-.0,.0,-.0,.0,.0,.0,-.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,-.0,.0,.0,.0,.0,.0,-.0,.0,-.0,.0,-.0,.0,.0,.0,-.0,.0,.0,.0,-.0,.0,.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,.0,.0,-.0,.0,.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0]],"strings":[[.0,-.1169,-1.0,.8546,.0768,-.1834,.0847,.0532,-.0004,-.0057,-.0403,.0018,-.0362,-.0059,.0027,-.0012,-.0001,-.002,-.0008,-.0009,.0025,-.0023,-.0004,.0005,.0001,-.0001,-.0,.0001,.0001,.001,.0004,-.0003,-.0001,-.0,-.0001,-.0,.0,-.0,-.0,.0,-.0001,.0001,.0,-.0001,.0,-.0,-.0,-.0,.0,-.0,.0001,-.0,-.0001,.0,-.0,.0,.0,-.0,.0,-.0,.0,.0,.0001,-.0001,-.0002,-.0,.0,-.0,.0,.0,-.0001,-.0,.0002,-.0002,.0001,.0,.0001,.0001,.0001,.0001,-.0001,.0007,-.0,.0005,.0002,.0001,-.0003,-.0003,.0003,.0001,-.0009,.0002,.0001,.0,-.0001,.0004,-.0006,-.0004,.0005,-.0002,-.0002,-.0,-.0,.0003,.0,.0004,.0003,-.0,.0,-.0,.0001,.0,.0,-.0001],[.0,-.2925,.2458,.1791,.0011,.1259,-.0169,.0075,-.0041,-.0108,-.0072,.0061,.0065,.0231,.0008,.0019,-.0004,.0011,.001,-.0005,.0017,-.0003,-.0001,.0,-.0004,-.0001,.0003,-.0003,-.0001,.0004,.0003,.0002,-.0001,-.0001,.0,-.0001,.0001,-.0,-.0001,.0,-.0,.0001,-.0,-.0,-.0,-.0001,.0,.0,-.0,-.0001,.0,-.0,-.0,.0,.0,-.0,-.0,.0,-.0,.0,-.0,-.0,.0001,.0001,-.0,.0,-.0001,.0,.0,-.0,-.0001,.0,.0001,.0,-.0,.0,.0001,.0,.0001,-.0002,.0003,.0005,-.0001,.0001,-.0001,.0001,-.0,-.0004,.0007,.0002,-.0004,.0004,.0,-.0,-.0,.0003,-.0005,-.0001,.0,-.0001,-.0001,-.0,.0,.0002,-.0002,.0001,-.0003,-.0001,-.0001,-.0,.0,-.0,.0,-.0001]],"brass":[[.0,-.1134,-.1879,-1.0,-.094,.0901,-.4517,.0574,-.3259,-.0167,-.1685,-.0069,-.1433,.0083,.2656,-.0061,.0366,.0039,.0123,.0031,-.0256,-.0037,-.0225,-.0127,.0058,-.003,-.0033,-.0077,-.0119,.0079,.0097,-.0059,.0037,.0041,-.0069,-.008,-.005,.0055,.0021,.0058,.0003,-.0017,-.0001,.0031,.0043,-.0041,.0002,.0023,-.0009,-.0034,.0037,.0015,-.0037,-.0019,.0035,-.0026,-.0031,.0035,.003,-.0034,-.0029,.0026,.0026,.0022,-.0029,-.0004,.0021,-.0018,.0025,.0026,.0023,.0007,-.003,.0029,.003,-.0022,-.0019,-.0011,.0017,-.0011,.0027,-.0003,.0012,.0022,.0007,-.0026,.0025,.0021,.0022,.002,-.0023,-.0001,.0023,.0025,.0015,.0023,-.0024,.0023,.0017,.0007,-.0021,.0019,.002,.0015,-.0012,.0004,.0023,-.0022,-.0001,.0023,.0017,.0017,-.0022,.0004,.0021,.0012,-.0021,.0014,-.0015,-.0022,.0021,-.0006,-.0004,.0016,.0003,-.0006,-.0017,-.002,.0011,.0019,.0016,.0017,.0018,-.0006,.0011,.0004,-.002,.0017,.002,.002,-.0014,.0013,.0011,.0019,.0011,-.0002,.0018,.0013,.0019,.0019,.0018,.0014,-.0002,-.0,.0019,.0015,-.0008,.0012,.0014,.0002],[.0,.2733,.3471,.4653,-.168,-.3212,-.0099,-.0256,.1515,.0748,.2628,-.0033,-.013,.011,-.0273,-.0045,.0063,.0124,.0374,.0072,.0267,.0023,.0023,-.0149,.0154,.0144,.014,-.0119,.0043,.0066,.0015,-.0073,-.0082,.0078,.0044,-.0008,-.0046,.0039,.0063,.0,-.0057,.0049,.0051,-.004,-.002,.0022,.0046,.0036,-.0041,.0024,.0018,.0038,-.0017,.0031,-.001,.0025,-.0017,.0003,-.0018,.0006,-.0019,.002,-.0021,-.0024,.0015,.0032,.0024,.0026,-.0018,-.0017,-.0021,.003,.0007,.0007,.0004,-.0019,-.0022,.0026,-.0023,-.0026,-.0006,.0028,.0025,-.0016,-.0027,.0009,-.0012,-.0017,-.0016,-.0018,-.0012,-.0026,.0013,-.0006,-.0019,-.0009,.0003,.0006,-.0017,-.0023,.0011,.0014,.0013,-.0018,-.002,.0023,.0004,.0006,.0023,-.0,-.0015,-.0014,-.0005,.0022,.0006,-.0018,.0005,.0016,.0016,.0002,-.0006,.0021,-.0021,.0015,-.0021,.002,.0012,-.0007,.0018,.0008,-.0014,-.0012,.0009,.002,.0017,-.002,.0004,-.0012,.0001,-.0002,-.0014,-.0015,.0017,.0005,-.0016,-.002,-.0009,-.0014,-.0002,.0003,-.0007,-.0014,-.0019,-.0019,-.0002,-.0011,-.0017,-.0014,.0013,-.0019]],"trombone":[[.0,.3561,.2735,-.4039,-.2694,-.168,.102,.0577,-.0173,-.0105,.0044,.0016,-.0029,-.0019,-.0,.0007,-.0,.0003,-.0003,-.0001,-.0001,.0002,-.0002,.0,-.0001,.0001,-.0001,-.0,-.0,.0,.0,-.0,.0],[.0,-.1885,1.0,.538,.0195,-.2597,-.0971,.0163,.0037,-.0217,-.0048,.0037,.0023,-.0006,-.0001,.0003,.0001,.0002,.0002,-.0,-.0001,-.0,.0,.0,.0001,.0001,.0,.0,-.0001,-.0,.0001,.0,.0001]],"choirah":[[.0,.6551,.2227,.2532,.2333,.4397,.763,-.8731,-.2645,-.5271,.6916,.0339,.0354,.0165,.0082,.0017,-.0095,-.0076,-.0094,-.0079,-.007,-.0186,-.0111,-.0113,-.0019,.0099,.0482,.0319,-.0453,-.0128,-.0033,-.0054,.0007,-.0049,.0115,.0021,-.0018,-.0005,.0004,-.0003,.0013,-.0019,-.0025,-.0124,.0053,-.0051,-.0038,-.0059,-.0031,-.0006,.0005,-.0012,.0004,-.0008,-.0001,-.0005,-.0005,-.0004,-.0005,.0002,.0,.0,.0007,.001,-.0008,.0001,-.0002,.0001,-.0001,-.0,.0001,-.0003,.0004,-.0015,-.0005,-.0029,-.002,-.0073,-.0032,-.0076,-.0019,-.0077,.0009,-.004,.0011,-.0009,.0001,-.0005,.0001,.0002,.0005,-.0003,.0009,-.0009,.0014,-.0007,.0016,-.001,.0015,-.0004,.0002,.0006,.0012,-.0002,.0005,-.0006,.0009,-.0011,.0003,-.0006,.0002,-.0003,-.0,-.0003,.0002,.0001,-.0003,-.0005,.0004,-.0008,-.0005,-.0002,.0002,-.0002,.0,-.0002,-.0002,.0002,.0003,-.0002,-.0014,-.0009,-.0018,-.0017,-.0033,-.0004,-.0027,-.0039,.0003,-.0009,-.0007,.0005,.0008,-.0004,-.0003,-.0033,-.0051,-.0003,.0019,.0021,.0002,-.0002,.0002,-.0002,.0001,.0,-.0002,-.0004,.0002,.0001],[.0,-.0318,.2825,.0722,.1082,.0287,-.4681,-1.0,.1406,.6443,.8564,-.0772,-.0474,-.0498,-.0287,-.027,-.0112,-.0051,-.0069,-.0016,-.0053,-.0011,-.0049,.0081,.0143,.0319,.0091,-.0369,-.0227,.0207,.0059,.0103,.0013,.0022,-.0071,-.0002,-.0079,-.0003,-.0022,-.0005,-.0006,-.0103,.0013,-.0055,.005,.0044,-.0013,.0043,-.0008,-.0006,-.0009,-.0019,.0009,-.0004,.0001,.0,.0004,-.0003,-.0,-.0002,.0001,-.0003,-.0013,-.0014,-.0015,-.0005,-.0006,-.0002,-.0002,.0001,-.0002,.0004,.0015,-.0001,.0005,-.0032,.001,-.0015,-.0016,-.0023,-.0018,-.0017,-.0056,-.0006,-.0056,.0002,-.0045,-.0005,-.0016,.0006,.0006,.0006,.0013,.0015,.0015,.0014,.0023,.0035,.0018,.0029,.0005,-.0002,-.0001,-.0003,-.0002,-.0002,-.0001,-.0008,.0007,.0004,-.0004,.0002,-.0001,-.0001,-.0002,-.0003,-.0004,-.0003,.0003,.0005,-.0,.0003,.0003,.0003,.0,.0003,.0001,-.0001,-.0007,-.0015,-.0025,-.0007,-.0006,-.0001,-.0004,-.0007,.0023,.0014,.0027,.0023,.0013,.0023,.0007,-.0005,-.0021,-.0025,-.0004,.0031,.0003,-.0022,-.0009,-.0004,-.0003,-.0002,-.0003,-.0006,-.0004,-.0003,.0003,.0002]],"choirooh":[[.0,-.7474,.581,-.9168,.1241,.0996,-.026,.2611,-.084,-.0254,-.0127,.0164,.0012,-.0004,-.0117,.0008,-.0016,.0005,-.0027,.0018,.0007,.0017,-.0008,.0012,.0014,-.005,.0046,-.0004,.0009,-.0004,.0001,-.0005,.0014,-.0018,.0016,-.0009,.001,-.0006,-.0007,.0002,-.0006,.0016,-.0017,.0002,.0001,.0004,-.0001,-.0001,-.0002,-.0004,-.0001,.0004,-.0001,-.0004,.0001,-.0002,-.0005,-.0003,.0002,-.0001,-.0002,.0002,-.0001,-.0,.0,-.0006,-.0001,-.0001,-.0005,.0001,-.0,.0002,-.0001,.0003,.0002,.0,.0001,-.0,.0003,-.0003,.001,-.0005,.0002,-.0001,-.0003,.0001,-.0002,.0004,-.0004,.0007,-.0004,.0005,-.0003,.0003,.0002,-.0003,-.0001,-.0002,.0001,-.0006,.0007,-.0016,.0014,-.0005,-.0002,-.0004,-.0002,-.0002,.0001,-.0002,-.0001,-.0,-.0003,.0003,-.0001,-.0008,.0016,-.001,.0003,-.0002,.0001,-.0003,.0001,-.0001,-.0004,-.0001,-.0003,.0005,-.0005,.0011,-.002,.0007,.0006,-.0016,.0018,-.0,-.0006,.0005,-.0007,.0009,-.0007,.0005,-.0007,.001,-.0009,.0001,.0017,-.0005,.0005,-.0,-.0019,.0006,-.0012,.0003,-.0,.0004,-.0001,.0005,-.0003,.0001],[.0,.0938,.5178,.039,-1.0,.0323,-.1282,.043,-.0159,-.0412,.02,.0064,-.0019,-.0057,.0049,-.0072,.0021,-.0043,-.0003,.0005,-.0006,.0002,.0019,-.0025,.006,-.0014,.0014,.0009,-.0006,.0001,.0003,-.0011,.0014,-.0004,-.0,-.0006,-.0003,.0012,-.0007,.0004,-.0009,.0013,.0023,-.0003,.0003,-.0004,-.0,-.0,-.0001,-.0001,.0002,.0001,-.0001,.0001,.0001,-.0001,-.0002,-.0001,.0002,-.0003,.0004,-.0003,-.0002,-.0,-.0001,.0002,-.0003,-.0001,.0001,.0,.0001,-.0002,.0003,-.0002,.0001,.0,.0002,-.0,-.0002,-.0002,.0,.0011,-.0009,.001,-.0003,-.0001,-.0003,.0007,-.0004,-.0,.0003,.0001,-.0,.0,-.0005,.0001,-.0005,-.0001,-.0005,.0001,-.0002,.0002,.0001,.0009,-.0014,.0003,.0001,-.0003,.0002,.0002,-.0001,.0001,.0001,-.0005,.0005,-.0008,.0003,-.0001,.0,-.0001,-.0003,.0001,-.0002,-.0003,-.0003,.0003,.0004,-.0,-.0,.0002,.0009,-.0001,.0017,-.0021,-.0012,.0005,.0002,-.0002,-.0003,.0007,-.0004,.001,-.0,-.0004,.0002,.0003,.0003,.0002,-.0003,.0003,-.0016,.0005,-.0001,-.0,.0002,-.0,.0001,-.0002,-.0001,.0003]],"voiceo":[[.0,-.1949,-.5336,-.1473,.8861,-1.0,.1617,.1004,-.5245,.3925,-.0897,.0106,.019,-.0117,-.0062,.0096,-.0001,-.0078,.0011,.0073,-.0036,-.0054,.0065,.008,-.0106,.0116,-.0066,-.0014,.0031,-.0011,-.0027,.0029,.0012,-.0035,.0008,-.0008,-.0036,.0026,-.0007,.0026,-.0002,-.0003,.0,-.0009,-.002,.0003,-.0012,-.0016,-.0027,-.0023,-.0001,-.001,.0001,.0001,-.0001,-.0002,-.0004,-.0005,-.0003,-.0001,.0008,-.0002,.0004,-.0003,.0001,.0001,.0001,-.0003,-.0003,.0015,-.0028,.0012,.0001,.0002,-.0005,.0011,-.0013,-.0,.0007,-.0011,-.0005,.0028,-.0014,.0003,.0004,.0004,-.0029,.0011,.0005,-.0002,.0002,-.0006,-.0013,.0035,-.0007,-.0002,.0013,-.0009,-.0008,.0007,.0002,-.0005,.0003,-.0003,-.0003,-.0002,-.0036,.0032,-.0035,.0015,-.0005,-.0003,-.0001,-.0,.0,.0001,.0001,.0004,-.0002,.0001,.0004,-.0003,-.0002,.0002,-.0004,.0009,.0002,-.0011,.0007,.0003,-.001,.0013,-.0005,.0001,-.0,.0001,.0001,.0001,.0001,.0004,.0,.0018,.0005,.0003,.0,-.0001,.0001,-.0006,-.0001,.0007,-.0003,-.0002,.0004,-.0004,-.0006,.0001,-.0,-.0003,-.0,.0002],[.0,-.5919,-.2205,.4363,-.257,.6904,.1613,-.2332,.2261,-.1365,-.0204,.0408,-.0176,-.0135,.0107,.0088,-.0078,-.0012,.0053,-.0013,-.0054,.0043,.0057,-.0139,.0197,-.0025,-.0069,.0067,-.0003,-.0036,.0011,.0016,-.0032,.0008,.0015,-.0036,.0005,-.0018,-.0018,.0012,-.0017,.0003,.0004,.0007,.0028,.0007,.0012,.0004,-.0003,.0001,-.0018,-.0015,-.0008,-.0004,.0002,.0003,-.0001,-.0001,-.0003,-.0001,-.0005,.0001,-.0001,-.0001,.0002,-.0003,-.0,.0,.0005,.0005,-.0006,-.0001,-.0005,-.0004,.0008,.0002,-.0009,.0016,-.0013,-.0006,.0013,-.0004,-.0004,.0003,.0006,-.001,-.0004,.0004,-.0012,.0005,.0001,-.0013,.0011,.0,-.0023,.0023,.0012,-.0011,.0003,.0005,-.0004,-.0003,.0006,-.0002,.0013,.0004,.0009,.0008,-.004,.0028,-.0014,-.0001,.0001,-.0002,-.0001,.0,.0,.0,-.0002,.0006,.0001,-.0007,.0003,-.0007,.0004,.0004,-.0007,-.0001,.0015,-.0014,.001,-.0004,-.0005,.0003,-.0004,-.0004,-.0004,-.0003,-.0002,-.001,-.0001,-.0004,.0002,.0018,-.0008,.0019,-.0001,-.002,.0011,-.0004,-.0002,.0006,.0005,-.0003,.0002,-.0002,-.0004,.0003,.0,-.0001]],"celeste":[[.0,-.0,-1.0,.001,-.0023,.0002,-.0024,.0002,-.0015,.0002,-.0015,.0003,-.0002,.0001,-.0012,.0002,-.0002,.0001,-.0003,.0001,-.0001,.0001,-.0002,.0001,-.0001,.0001,-.0001,.0001,-.0,.0001,-.0001,.0002,-.0004,.0001,-.0001,.0,-.0002,.0002,-.0001,.0001,-.0001,.0,-.0001,.0,-.0001,.0002,-.0002,.0001,-.0003,.0001,-.0002,.0001,-.0001,.0001,-.0001,.0001,-.0002,.0002,-.0002,.0001,-.0001,.0001,-.0002,.0003,-.0004,.0004,-.0005,.0006,-.0005,.0005,-.0004,.0003,-.0002,.0002,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001],[.0,.0046,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0]],"epiano":[[.0,-.0,-.7654,1.0,-.2288,.9077,-.243,.5473,-.3809,.2322,-.3433,.0493,-.2672,.0572,-.2073,.1718,-.1517,.177,-.057,.131,-.0158,.0811,-.0701,.0474,-.0423,.0367,-.0265,.0209,-.0171,.0116,-.0111,.0109,-.0107,.0112,-.0111,.0103,-.0068,.0046,-.0046,.0041,-.0041,.0045,-.0045,.006,-.006,.0059,-.0058,.006,-.0059,.0058,-.0058,.0057,-.0057,.0048,-.0048,.0047,-.0032,.0032,-.0032,.0032,-.0031,.0024,-.0023,.0023,-.0023,.0023,-.0023,.0022,-.0022,.0022,-.0022,.0022,-.0022,.0021,-.0021,.0021,-.002,.002,-.002,.0017,-.0017,.0016,-.0016,.0016,-.0016,.0016,-.0016,.0016,-.0016,.0016,-.0016,.0016,-.0015,.0016,-.0016,.0016,-.0016,.0016,-.0016,.0016,-.0016,.0016,-.0016,.0016,-.0012,.0012,-.0012,.0012,-.001,.001,-.001,.001,-.001,.001,-.001,.001,-.001,.001,-.001,.0009,-.0009,.0009,-.0009,.0009,-.0009,.0009,-.0009,.0009,-.0009,.0009,-.0009,.0009,-.0009,.0009,-.0009,.0009,-.0009,.0009,-.0009,.0009,-.0009,.0009,-.0009,.0009,-.0009,.0009,-.0008,.0008,-.0008,.0008,-.0008,.0008,-.0008,.0008,-.0008,.0007,-.0007,.0007,-.0007,.0007],[.0,.6422,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0001,.0,-.0001,.0,-.0001,.0001,-.0001,.0001,-.0,.0001,-.0,.0001,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0,.0]],"fullsynth":[[.0,-.0,-.505,.2303,-.108,.0689,-.0492,.0346,-.0324,.0315,-.0256,.023,-.0234,.0211,-.0186,.0164,-.0149,.0145,-.0128,.011,-.0108,.009,-.0088,.0074,-.0072,.0063,-.0061,.0058,-.0056,.0053,-.0063,.0062,-.0059,.0058,-.0057,.0056,-.0056,.0055,-.0051,.005,-.005,.0049,-.0048,.0048,-.0047,.0047,-.0046,.0046,-.0041,.0041,-.004,.004,-.004,.0039,-.0039,.0039,-.0038,.0038,-.0038,.0037,-.0033,.0032,-.0032,.0032,-.0032,.0031,-.0031,.0031,-.0026,.0026,-.0026,.0026,-.0026,.0029,-.0033,.0033,-.0033,.0033,-.0032,.0032,-.0032,.0032,-.0032,.0031,-.0031,.0031,-.0033,.0033,-.0032,.0032,-.0032,.0032,-.0032,.0032,-.0031,.0031,-.0031,.0031,-.0031,.0031,-.003,.003,-.003,.003,-.003,.003,-.003,.0029,-.0029,.0029,-.0029,.0029,-.0029,.0029,-.0029,.0028,-.0028,.0028,-.0028,.0028,-.0028,.0028,-.0028,.0027,-.0027,.0027,-.0027,.0027,-.0027,.0027,-.0027,.0027,-.0027,.0026,-.0026,.0026,-.0026,.0026,-.0026,.0028,-.0028,.0028,-.0028,.0028,-.0028,.0028,-.0028,.0028,-.0027,.0027,-.0027,.0027,-.0027,.0027,-.0027,.0027,-.0027,.0027,-.0027,.0026],[.0,1.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0,.0,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001,-.0001,.0001]],"putney":[[.0,1.0,-.4621,.1951,.3198,.0229,.1785,-.185,.0255,.0126,-.111,-.0342,-.0039,.0426,.0295,.0557,-.0105,-.0507,-.0286,-.052,.0377,.0174,-.0105,.035,-.0046,-.0035,-.0012,-.0105,.0073,-.0016,-.0332,.0454,.0321,-.0437,.0282,-.0221,-.0328,.0063,-.0262,.0322,-.0007,-.035,.041,-.0102,-.0234,.0012,-.0002,.0159,-.0033,-.0148,.0216,.0061,-.0242,.0205,.0037,-.0054,.0012,-.0021,.0035,.0011,-.0295,.0309,.0227,-.0234,.0214,.0034,-.0348,.0141,-.0326,.0329,.0328,-.0326,.0007,-.0008,-.0018,.0013,-.0017,.0026,.0064,.0054,.0031,-.0121,-.013,.0052,-.0039,-.0101,.011,-.0106,.0111,-.0067,.0093,.0087,-.0127,.0123,.008,-.0118,.0114,-.0076,.0118,.0103,-.0127,-.0002,.004,-.0096,.0065,.0093,-.0105,.0084,-.0122,-.0007,.0069,-.0098,.0048,.0115,-.0078,.0003,.0097,-.0117,.0001,-.0057,-.0004,.0101,-.0096,.0009,.0092,-.0088,.0056,-.0092,-.0076,.0094,-.0084,.0037,.0082,-.0075,-.0001,.0094,-.0088,.0023,-.004,-.0073,.0089,-.0064,.0034,.0091,-.0089,-.004,-.0016,-.0028,.0082,.0007,-.0001,.0091,-.0023,-.0023,.0079,-.0086,-.0074,-.0016,-.0052,.0069],[.0,-.5737,.2617,.2386,-.0268,.0851,-.2401,.0401,-.0888,-.0302,.1286,-.1032,.0813,.0839,-.0645,-.0122,-.0676,-.0173,.0378,.0045,.0295,.0434,-.0155,-.0108,.004,-.0149,.0033,-.0053,-.0006,.0178,-.0251,-.019,.0383,-.0225,-.0271,.0301,.0167,.0028,-.0101,-.0278,.042,-.0223,-.0216,.0447,-.0388,.0032,-.0008,-.0156,.0218,-.0161,-.0003,.0276,-.0141,-.0187,.0281,-.0028,.0007,.0006,-.0041,.0047,-.0196,-.0166,.0264,-.0254,-.0268,-.0349,-.002,.0304,.0065,.0026,-.0016,-.0002,-.0015,.0025,.0022,-.0025,.0022,-.001,.0125,.0128,-.0134,-.0065,.0041,.0125,-.0129,.0088,.0076,-.0079,.007,-.0113,-.0091,.0096,-.0019,-.0035,.0104,.0056,-.0063,.0105,-.0051,-.0075,.0015,-.0127,.012,.008,-.0106,.0083,-.0066,-.009,.0013,-.0122,.01,.007,-.011,.0033,.009,-.0119,.0068,-.0013,-.0117,.0102,-.0116,.0058,.0065,-.0101,.0041,.0049,-.0084,.0039,-.0064,.0033,.0052,-.0091,.0054,.0063,-.0097,.0022,.004,-.0093,.0087,-.0061,.0035,.007,-.0088,-.0023,.003,-.0085,.0092,.0089,-.0042,.0092,-.0092,-.001,.0088,-.0088,-.0045,.0029,-.0036,.0081,.0063,.0043]]};
+const LEGACY={square:'warmsquare',saw:'warmsaw',triangle:'warmtri',pulse:'droppedsaw',clarinet:'voiceo',oboe:'choirooh',flute:'warmtri',trumpet:'brass',voice:'choirah',reed:'organ'};
+if(LEGACY[S.timbre])S.timbre=LEGACY[S.timbre];
+if(!TABLES[S.timbre]&&S.timbre!=='sine')S.timbre='warmsquare';
+// per-sound shaping: lowpass (x fundamental), resonance, attack (s), slow filter motion, breath noise, noise band (x f), level
+const PROF={
+  warmsquare:{cut:24,q:.7,att:.06,wob:.05,lvl:.8}, warmsaw:{cut:24,q:.7,att:.06,wob:.05,lvl:.75},
+  warmtri:{cut:30,q:.6,att:.06,wob:.03,lvl:1}, droppedsaw:{cut:24,q:.6,att:.08,wob:.05,lvl:.85},
+  sine:{cut:30,q:.5,att:.08,wob:0,lvl:1.1},
+  organ:{cut:40,q:.5,att:.03,wob:.02,breath:.01,nb:6,lvl:.85}, pipeorgan:{cut:40,q:.5,att:.05,wob:.02,breath:.02,nb:5,lvl:.85},
+  epiano:{cut:30,q:.6,att:.02,wob:.03,lvl:.9}, celeste:{cut:40,q:.5,att:.02,wob:.02,lvl:.95},
+  strings:{cut:40,q:.5,att:.3,wob:.06,breath:.035,nb:7,lvl:.85}, brass:{cut:22,q:.8,att:.09,wob:.06,breath:.015,nb:4,lvl:.8},
+  trombone:{cut:22,q:.8,att:.1,wob:.05,breath:.015,nb:4,lvl:.85},
+  choirah:{cut:40,q:.5,att:.25,wob:.03,breath:.03,nb:5,lvl:.85}, choirooh:{cut:40,q:.5,att:.25,wob:.03,breath:.025,nb:4,lvl:.9},
+  voiceo:{cut:40,q:.5,att:.2,wob:.03,breath:.025,nb:4,lvl:.9},
+  fullsynth:{cut:20,q:.9,att:.08,wob:.08,lvl:.75}, putney:{cut:24,q:.8,att:.1,wob:.06,lvl:.8}};
+let noiseBuf=null,wetBus=null,rooms={};const irRaw={};
+const ROOMWET={off:0,studio:.75,hall:.7,kilbourn:1.1,largehall:1.05,warehouse:.63,cathedral:1.25};
+function fakeIR(){const sr=ctx.sampleRate,L=Math.floor(sr*2.4),ir=ctx.createBuffer(2,L,sr);
+  for(let c=0;c<2;c++){const d=ir.getChannelData(c);let lp=0;
+    for(let i=0;i<L;i++){const t=i/sr;lp=lp*.6+(Math.random()*2-1)*.4;d[i]=lp*Math.exp(-3.1*t)*(t<.012?t/.012:1);}}return ir;}
+async function setRoom(name){
+  S.room=name;if(!ctx||!wetBus)return;
+  const t=ctx.currentTime;
+  for(const k in rooms){const r=rooms[k];if(k===name)continue;r.g.gain.setTargetAtTime(0,t,.25);
+    clearTimeout(r.off);r.off=setTimeout(()=>{if(S.room!==k&&r.on){try{master.disconnect(r.conv)}catch(e){}r.on=false;}},3000);}
+  if(name==='off')return;
+  let r=rooms[name];
+  if(!r){
+    let buf=null;
+    try{
+      if(!irRaw[name])irRaw[name]=await (await fetch('ir/'+name+'.mp3'+(name==='cathedral'?'?v=4':''))).arrayBuffer();
+      buf=await new Promise((ok,no)=>{const p=ctx.decodeAudioData(irRaw[name].slice(0),ok,no);if(p&&p.then)p.then(ok,no);});
+    }catch(e){buf=fakeIR();}
+    if(!ctx||rooms[name])return;
+    const conv=ctx.createConvolver();conv.buffer=buf;const g=ctx.createGain();g.gain.value=0;
+    conv.connect(g);g.connect(wetBus);r=rooms[name]={conv,g,on:false,off:0};
+  }
+  if(S.room!==name)return;
+  clearTimeout(r.off);if(!r.on){master.connect(r.conv);r.on=true;}
+  r.g.gain.setTargetAtTime(ROOMWET[name]||.6,ctx.currentTime,.25);
+}
+// iPhone: Web Audio is silenced by the ring/silent switch unless the page uses the "playback" audio session.
+const SILENT='data:audio/wav;base64,UklGRsQPAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YaAPAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA';let silentEl=null;
+function iosPlayback(){
+  try{if(navigator.audioSession)navigator.audioSession.type='playback';}catch(e){}
+  if(!silentEl){try{silentEl=new Audio(SILENT);silentEl.loop=true;silentEl.setAttribute('playsinline','');silentEl.play().catch(()=>{});}catch(e){}}
+}
+function ensureCtx(){
+  iosPlayback();
+  if(!ctx){const AC=window.AudioContext||window.webkitAudioContext;
+    try{ctx=new AC({latencyHint:0});}catch(e){try{ctx=new AC({latencyHint:'interactive'});}catch(e2){ctx=new AC();}}   // smallest buffer the system allows
+    // output stage: a zero-delay soft clipper instead of a compressor (compressors add a fixed 6 ms look-ahead).
+    // Clean and linear below about -4 dBFS, gentle rounding above, never past full scale.
+    const comp=ctx.createGain();comp.gain.value=1.081/2;const clip=ctx.createWaveShaper(),N=4097,cv=new Float32Array(N);
+    for(let i=0;i<N;i++){const x=(i/(N-1)*2-1)*2,a=Math.abs(x),y=a<.7?a:.7+.3*Math.tanh((a-.7)/.3);cv[i]=Math.sign(x)*y;}
+    clip.curve=cv;clip.oversample='none';comp.connect(clip);clip.connect(ctx.destination);
+    master=ctx.createGain();master.gain.value=gainVal();
+    // rooms: each impulse response gets its own convolver (a convolver's buffer can only be set once in Safari),
+    // and all of them feed a gently compressed reverb bus
+    wetBus=ctx.createGain();const rc=ctx.createDynamicsCompressor();
+    rc.threshold.value=-26;rc.knee.value=10;rc.ratio.value=3;rc.attack.value=.03;rc.release.value=.35;
+    const mk=ctx.createGain();mk.gain.value=1.5;wetBus.connect(rc);rc.connect(mk);mk.connect(comp);
+    master.connect(comp);rooms={};
+    setRoom(S.room);
+    const sr=ctx.sampleRate;noiseBuf=ctx.createBuffer(1,sr*2,sr);const nd=noiseBuf.getChannelData(0);for(let i=0;i<nd.length;i++)nd[i]=Math.random()*2-1;}
+  if(ctx.state==='suspended') ctx.resume();
+  return ctx;
+}
+function wave(name){
+  if(waves[name]) return waves[name];
+  const t=TABLES[name]||[[0,0],[0,1]];
+  return waves[name]=ctx.createPeriodicWave(Float32Array.from(t[0]),Float32Array.from(t[1]));
+}
+const cutHz=(f,P)=>Math.min(f*P.cut,16000);
+function makeVoice(m){
+  const P=PROF[S.timbre]||PROF.square,f=freq(m),t=ctx.currentTime;
+  const o=ctx.createOscillator();o.setPeriodicWave(wave(S.timbre));o.frequency.value=f;
+  const lp=ctx.createBiquadFilter();lp.type='lowpass';lp.frequency.value=cutHz(f,P);lp.Q.value=P.q;
+  o.connect(lp);let last=lp;
+  (P.form||[]).forEach(([hz,db,q])=>{const pk=ctx.createBiquadFilter();pk.type='peaking';pk.frequency.value=hz;pk.gain.value=db;pk.Q.value=q;last.connect(pk);last=pk;});
+  const env=ctx.createGain();env.gain.value=0;last.connect(env);
+  const trem=ctx.createGain();trem.gain.value=1;env.connect(trem);trem.connect(master);
+  const v={o,lp,env,P,timbre:S.timbre,srcs:[o]};
+  if(P.breath){const ns=ctx.createBufferSource();ns.buffer=noiseBuf;ns.loop=true;ns.loopStart=Math.random();
+    const bp=ctx.createBiquadFilter();bp.type='bandpass';bp.frequency.value=Math.min(f*P.nb,12000);bp.Q.value=.9;
+    const ng=ctx.createGain();ng.gain.value=P.breath;ns.connect(bp);bp.connect(ng);ng.connect(env);ns.start(t,Math.random());v.bp=bp;v.srcs.push(ns);}
+  if(P.wob){const lfo=ctx.createOscillator();lfo.frequency.value=.12+Math.random()*.3;
+    const lg=ctx.createGain();lg.gain.value=cutHz(f,P)*P.wob;lfo.connect(lg);lg.connect(lp.frequency);lfo.start();v.lg=lg;v.srcs.push(lfo);}
+  const tr=ctx.createOscillator();tr.frequency.value=.18+Math.random()*.25;const tg=ctx.createGain();tg.gain.value=.05;
+  tr.connect(tg);tg.connect(trem.gain);tr.start();v.srcs.push(tr);
+  o.start();return v;
+}
+function killVoice(m){const v=voices.get(m);if(!v)return;const t=ctx.currentTime;
+  const g=v.env.gain;
+  if(g.cancelAndHoldAtTime)g.cancelAndHoldAtTime(t);else{const cur=g.value;g.cancelScheduledValues(t);g.setValueAtTime(cur,t);}
+  g.setTargetAtTime(0,t+.01,.15);v.srcs.forEach(x=>{try{x.stop(t+2)}catch(e){}});voices.delete(m);}
+function syncVoices(){
+  if(!ctx) return;
+  const want=S.playing?S.notes:new Set();
+  for(const m of [...voices.keys()]) if(!want.has(m)||voices.get(m).timbre!==S.timbre) killVoice(m);
+  const n=Math.max(1,want.size),t=ctx.currentTime;
+  for(const m of want){
+    let v=voices.get(m),fresh=false;
+    if(!v){v=makeVoice(m);voices.set(m,v);fresh=true;}
+    const f=freq(m),P=v.P;
+    if(fresh||S.retune!=='hold'){
+      v.o.frequency.setTargetAtTime(f,t,.04);
+      v.lp.frequency.setTargetAtTime(cutHz(f,P),t,.04);
+      if(v.lg) v.lg.gain.setTargetAtTime(cutHz(f,P)*P.wob,t,.04);
+      if(v.bp) v.bp.frequency.setTargetAtTime(Math.min(f*P.nb,12000),t,.04);
+    }
+    const lvl=.36*P.lvl/Math.sqrt(n)*velGain(m),g=v.env.gain;
+    if(fresh&&MIDI.fast.has(m)){   // MIDI strike: audible within 2 ms, then the sound's own swell
+      g.setValueAtTime(0,t);g.linearRampToValueAtTime(lvl*.6,t+.002);g.setTargetAtTime(lvl,t+.002,Math.min(P.att,.03)/2);
+    } else g.setTargetAtTime(lvl,t,fresh?P.att/2:.15);
+  }
+}
+
+/* ---------- rendering ---------- */
+function renderMode(){
+  const p=S.mode==='pure';
+  $('modeBtn').setAttribute('aria-checked',p);
+}
+
+/* ---------- grand staff ---------- */
+const NATPC=[0,2,4,5,7,9,11],LETTERS='CDEFGAB';
+const RSPELL=[[0,0],[1,-1],[1,0],[2,-1],[2,0],[3,0],[3,1],[4,0],[5,-1],[5,0],[6,-1],[6,0]];
+function spell(m){
+  const pc=m%12;let L,acc;
+  if(chord&&chord.root!=null){
+    [L,acc]=pcSpell(pc,chord);
+  } else {[L,acc]=RSPELL[pc];}
+  const oct=Math.floor((m-acc-NATPC[L])/12)-1;
+  return {d:oct*7+L,acc,midi:m};
+}
+const ACCG={'-2':'𝄫','-1':'♭','1':'♯','2':'𝄪'};
+const spLetter=m=>{const n=spell(m);return LETTERS[((n.d%7)+7)%7]+(ACCG[n.acc]||'');};
+const spName=m=>{const n=spell(m);return LETTERS[((n.d%7)+7)%7]+(ACCG[n.acc]||'')+Math.floor(n.d/7);};
+// Bravura glyph outlines (SIL Open Font License), drawn at 10px staff spacing
+const GL={"treble": "M20.191 53.208C20.135 52.731,20.191 52.703,20.444 52.45C24.824 48.378,28.138 43.24,28.138 37.034C28.138 33.524,27.155 30.042,25.498 27.627C24.881 26.729,23.842 25.606,23.392 25.606C22.831 25.606,21.567 26.644,20.781 27.543C17.776 30.856,16.794 35.911,16.794 40.123C16.794 42.454,17.102 45.093,17.383 46.75C17.468 47.227,17.496 47.311,17.018 47.733C11.178 52.534,5 58.319,5 66.49C5 73.51,9.802 80.193,19.714 80.193C20.641 80.193,21.708 80.109,22.522 79.94C22.943 79.856,23.027 79.828,23.112 80.305C23.589 83.029,24.207 86.539,24.207 88.449C24.207 94.43,20.163 95.16,17.776 95.16C15.586 95.16,14.547 94.514,14.547 93.98C14.547 93.7,14.912 93.587,15.839 93.278C17.102 92.913,18.535 91.846,18.535 89.488C18.535 87.269,17.131 85.36,14.66 85.36C11.964 85.36,10.335 87.522,10.335 90.021C10.335 92.632,11.908 96.62,18.029 96.62C20.725 96.62,25.976 95.384,25.976 88.533C25.976 86.202,25.246 82.383,24.824 79.856C24.74 79.379,24.768 79.435,25.33 79.182C29.43 77.554,32.125 74.128,32.125 69.551C32.125 64.384,28.334 59.807,22.382 59.807C21.343 59.807,21.343 59.807,21.202 59.077M24.01 31.867C25.33 31.867,26.425 32.962,26.425 35.181C26.425 39.674,22.578 43.324,19.405 46.104C19.124 46.357,18.956 46.3,18.872 45.767C18.703 44.728,18.619 43.352,18.619 42.06C18.619 35.742,21.539 31.867,24.01 31.867M19.602 59.414C19.714 60.172,19.714 60.144,18.984 60.369C15.446 61.576,13.115 64.777,13.115 68.231C13.115 71.853,15.025 74.437,17.776 75.391C18.113 75.504,18.591 75.616,18.872 75.616C19.18 75.616,19.349 75.419,19.349 75.167C19.349 74.886,19.04 74.774,18.759 74.661C17.046 73.931,15.839 72.19,15.839 70.337C15.839 68.006,17.411 66.293,19.882 65.591C20.528 65.423,20.612 65.479,20.697 65.928L22.718 77.975C22.803 78.424,22.747 78.424,22.157 78.536C21.511 78.649,20.697 78.733,19.882 78.733C12.806 78.733,8.229 74.802,8.229 69.186C8.229 66.799,8.65 63.598,11.992 59.807C14.435 57.111,16.288 55.595,18.17 54.079C18.591 53.742,18.675 53.798,18.759 54.219M22.382 65.844C22.297 65.339,22.353 65.226,22.831 65.283C26.116 65.563,28.812 68.315,28.812 71.853C28.812 74.409,27.267 76.458,25.021 77.61C24.544 77.834,24.459 77.834,24.375 77.357", "bass": "M15.193 39.414C8.145 39.414,5 44.552,5 48.428C5 51.657,6.685 54.437,9.97 54.437C12.525 54.437,14.266 52.668,14.266 50.168C14.266 47.585,12.357 45.956,10.391 45.956C9.296 45.956,8.875 46.237,8.37 46.237C7.836 46.237,7.696 45.928,7.696 45.507C7.696 43.907,10.139 40.93,14.266 40.93C18.535 40.93,20.416 45.142,20.416 51.488C20.416 62.776,14.828 69.094,5.393 74.458C5.028 74.654,4.803 74.879,4.803 75.188C4.803 75.44,4.972 75.665,5.337 75.665C5.534 75.665,5.758 75.609,6.011 75.469C15.951 70.611,26.481 63.422,26.481 51.123C26.481 44.103,22.185 39.414,15.193 39.414M30.44 42.727C29.177 42.727,28.222 43.682,28.222 44.946C28.222 46.209,29.177 47.164,30.44 47.164C31.676 47.164,32.659 46.209,32.659 44.946C32.659 43.682,31.676 42.727,30.44 42.727M30.469 52.864C29.233 52.864,28.278 53.791,28.278 55.054C28.278 56.318,29.233 57.245,30.469 57.245C31.732 57.245,32.659 56.318,32.659 55.054C32.659 53.791,31.732 52.864,30.469 52.864", "accidentalSharp": "M109.575 95.226C109.856 95.114,110.081 94.777,110.081 94.552L110.081 91.66C110.081 91.464,109.94 91.351,109.772 91.351C109.716 91.351,109.66 91.351,109.575 91.379C109.575 91.379,108.761 91.716,108.564 91.744C108.284 91.744,108.003 91.548,108.003 91.239L108.003 86.297C108.003 86.044,107.75 85.848,107.441 85.848C107.048 85.848,106.795 86.044,106.795 86.297L106.795 91.548C106.739 91.941,106.627 92.475,106.262 92.727C105.784 93.008,104.409 93.57,103.707 93.738C103.37 93.738,103.229 93.261,103.229 92.924L103.229 88.066C103.229 87.841,102.948 87.617,102.668 87.617C102.274 87.617,102.022 87.841,102.022 88.066L102.022 93.542C102.022 94.103,101.769 94.496,101.544 94.609C101.292 94.749,100.477 95.058,100.477 95.058C100.197 95.142,100 95.479,100 95.704L100 98.596C100 98.821,100.112 98.961,100.365 98.961L100.449 98.905C100.477 98.905,101.095 98.652,101.404 98.512L101.46 98.456C101.769 98.456,102.022 98.877,102.022 99.186L102.022 103.201C102.022 103.65,101.825 104.015,101.572 104.128C101.348 104.212,100.477 104.577,100.477 104.577C100.197 104.661,100 104.97,100 105.223L100 108.087C100 108.34,100.112 108.452,100.365 108.452L100.449 108.424C100.477 108.424,101.039 108.171,101.404 108.059C101.46 108.003,101.488 108.003,101.544 108.003C101.825 108.003,102.022 108.452,102.022 108.649L102.022 113.619C102.022 113.872,102.274 114.068,102.555 114.068C102.948 114.068,103.229 113.872,103.229 113.619L103.229 108.003C103.229 107.469,103.426 107.188,103.65 107.104L106.093 106.093C106.093 106.093,106.15 106.093,106.15 106.093L106.234 106.065C106.599 106.065,106.795 106.543,106.795 106.795L106.795 111.85C106.795 112.102,107.048 112.299,107.329 112.299C107.75 112.299,108.003 112.102,108.003 111.85L108.003 106.093C108.003 105.784,108.171 105.307,108.452 105.167C108.733 105.054,109.575 104.717,109.575 104.717C109.856 104.605,110.081 104.296,110.081 104.044L110.081 101.179C110.081 100.983,109.94 100.842,109.772 100.842C109.716 100.842,109.66 100.842,109.575 100.899L108.536 101.292C108.284 101.292,108.003 101.039,108.003 100.562L108.003 96.799C108.003 96.518,108.199 95.76,108.536 95.62M106.795 101.825C106.543 102.64,104.661 103.426,103.707 103.426C103.482 103.426,103.285 103.37,103.229 103.229C103.145 103.061,103.117 102.19,103.117 101.207C103.117 99.972,103.145 98.54,103.229 98.231C103.313 97.529,105.167 96.687,106.178 96.687C106.458 96.687,106.711 96.771,106.795 96.939C106.88 97.136,106.964 98.147,106.964 99.242C106.964 100.337,106.88 101.46,106.795 101.825", "accidentalFlat": "M100.477 106.88C100.618 107.048,100.73 107.076,100.842 107.076C100.983 107.076,101.095 106.992,101.095 106.992C102.303 106.318,103.285 105.223,104.296 104.521C107.89 102.022,109.126 99.551,109.126 97.697C109.126 95.395,107.357 93.935,105.504 93.822C104.802 93.822,103.847 94.131,103.285 94.496C103.033 94.693,102.583 95.058,102.387 95.058C102.303 95.058,102.274 95.058,102.19 95.03C101.909 94.918,101.741 94.609,101.741 94.328C101.769 93.457,102.022 83.742,102.022 82.927C102.022 82.478,101.657 82.253,101.264 82.253C100.674 82.253,100.028 82.647,100 83.377C100 83.377,100.168 106.458,100.477 106.88M101.909 103.285C101.909 103.285,101.769 100.842,101.769 99.242C101.769 98.596,101.825 98.091,101.853 97.95C102.134 97.136,103.763 95.956,104.689 95.956C105.869 95.956,106.346 97.304,106.346 98.315C106.346 100.477,104.493 102.668,102.752 103.763C102.583 103.847,102.471 103.875,102.359 103.875C101.994 103.875,101.909 103.482,101.909 103.285", "accidentalDoubleSharp": "M107.694 101.292C107.245 101.039,105.784 100.253,105.784 99.972C105.784 99.382,107.104 98.793,107.694 98.596C107.722 98.596,107.75 98.596,107.806 98.596L108.059 98.624C108.536 98.624,109.294 98.54,109.716 98.231C109.912 98.006,109.996 97.417,109.996 96.771C109.996 95.114,109.856 94.861,108.199 94.861C107.469 94.861,106.739 94.946,106.543 95.142C106.402 95.283,106.346 95.985,106.346 96.715C106.15 97.164,105.504 98.624,105.026 98.624C104.437 98.624,103.791 97.304,103.65 96.715C103.65 96.041,103.51 95.311,103.313 95.142C103.145 94.946,102.499 94.861,101.853 94.861C101.179 94.861,100.449 94.946,100.197 95.142C100.084 95.226,100 95.928,100 96.63C100 97.36,100.084 98.091,100.197 98.231C100.477 98.456,101.207 98.624,101.909 98.624C102.05 98.624,102.19 98.596,102.303 98.596C102.752 98.821,104.212 99.635,104.212 99.916C104.212 100.449,102.92 101.095,102.359 101.292L101.938 101.292C101.207 101.292,100.449 101.376,100.197 101.572C100.084 101.685,100 102.387,100 103.117C100 103.847,100.084 104.577,100.197 104.661C100.477 104.886,101.123 105.054,101.825 105.054C102.415 105.054,103.061 104.942,103.313 104.661C103.566 104.437,103.65 103.763,103.65 103.117C103.65 103.061,103.678 103.005,103.707 102.948C103.959 102.387,104.437 101.264,104.97 101.264C105.504 101.264,106.178 102.555,106.346 103.117C106.346 103.847,106.402 104.521,106.543 104.661C106.823 104.886,107.469 105.054,108.171 105.054C109.716 105.054,109.996 104.661,109.996 103.201C109.996 102.499,109.856 101.769,109.716 101.572C109.491 101.376,108.761 101.292,108.087 101.292", "accidentalDoubleFlat": "M112.692 93.907C111.962 93.907,111.457 94.187,110.783 94.552C110.502 94.693,110.193 95.058,109.828 95.058C109.744 95.058,109.66 95.058,109.631 95.03C109.351 94.946,109.21 94.665,109.21 94.328C109.21 93.485,109.463 83.742,109.463 82.984C109.463 82.534,109.098 82.338,108.705 82.338C108.171 82.338,107.525 82.703,107.441 83.377C107.441 83.377,107.469 88.908,107.554 94.552C106.964 94.131,106.262 93.907,105.504 93.907L105.251 93.907C104.493 93.907,104.015 94.187,103.37 94.552C103.033 94.693,102.752 95.058,102.387 95.058C102.303 95.058,102.274 95.058,102.19 95.03C101.909 94.946,101.741 94.665,101.741 94.328C101.741 93.485,102.022 83.742,102.022 82.984C102.022 82.534,101.657 82.338,101.264 82.338C100.674 82.338,100.028 82.703,100 83.377C100 83.377,100.197 106.515,100.477 106.88C100.618 107.048,100.73 107.076,100.842 107.076C100.983 107.076,101.095 106.992,101.095 106.992C102.359 106.346,103.37 105.223,104.296 104.521C105.784 103.482,106.908 102.387,107.694 101.404C107.75 104.437,107.834 106.739,107.975 106.88C108.087 107.048,108.199 107.076,108.284 107.076C108.424 107.076,108.536 106.992,108.536 106.992C109.772 106.346,110.755 105.223,111.681 104.577C115.332 102.022,116.623 99.551,116.623 97.697C116.623 95.423,114.826 93.935,112.945 93.907M102.696 103.763C102.583 103.847,102.415 103.875,102.359 103.875C102.022 103.875,101.909 103.482,101.909 103.229C101.909 103.229,101.769 100.842,101.769 99.27C101.769 98.624,101.825 98.147,101.853 97.978C102.106 97.164,103.763 95.956,104.717 95.956C105.953 95.956,106.346 97.332,106.346 98.343C106.346 100.618,104.521 102.64,102.696 103.763M110.137 103.763C109.996 103.847,109.856 103.875,109.772 103.875C109.463 103.875,109.351 103.482,109.351 103.229C109.351 103.229,109.21 100.449,109.21 98.905C109.21 98.456,109.21 98.091,109.266 97.978C109.491 97.164,111.204 95.956,112.159 95.956C112.58 95.956,112.889 96.069,113.141 96.35C113.506 96.855,113.759 97.529,113.759 98.343C113.759 100.618,111.962 102.64,110.137 103.763", "noteheadBlack": "M103.931 105.054C107.525 105.054,111.934 101.741,111.934 98.315C111.934 96.237,110.305 94.946,108.003 94.946C103.566 94.946,100 98.231,100 101.685C100 103.791,101.741 105.054,103.931 105.054"};
+const GW={accidentalSharp:10.08,accidentalFlat:9.13,accidentalDoubleSharp:10,accidentalDoubleFlat:16.62,noteheadBlack:11.93};
+const ACCN={'-2':'accidentalDoubleFlat','-1':'accidentalFlat','1':'accidentalSharp','2':'accidentalDoubleSharp'};
+function renderStaff(){
+  const sp=7,k=sp/10,half=sp/2,TB=0,BB=TB+9*sp;
+  const yT=d=>TB-(d-30)*half,yB=d=>BB-(d-18)*half;
+  const notes=[...S.notes].sort((a,b)=>a-b).map(m=>{const n=spell(m);n.tr=m>=60;n.y=n.tr?yT(n.d):yB(n.d);n.root=chord&&m%12===chord.root;return n;});
+  // very high or low notes use 8va / 8vb so the staff can stay a fixed size
+  const tre=notes.filter(n=>n.tr),bas=notes.filter(n=>!n.tr);let va=false,vb=false;
+  if(tre.length&&Math.max(...tre.map(n=>n.d))>42&&Math.min(...tre.map(n=>n.d))-7>=23){va=true;tre.forEach(n=>{n.d-=7;n.y=yT(n.d);});}
+  if(bas.length&&Math.min(...bas.map(n=>n.d))<14&&Math.max(...bas.map(n=>n.d))+7<=33){vb=true;bas.forEach(n=>{n.d+=7;n.y=yB(n.d);});}
+  let top=yT(41),bot=yB(15);notes.forEach(n=>{top=Math.min(top,n.y-sp);bot=Math.max(bot,n.y+sp);});
+  const xL=4,xR=150,xN=Math.round((xL+4+27.5*k+xR)/2),hw=GW.noteheadBlack*k,rx=hw/2,ry=rx;let g='';
+  const P=(name,tx,ty,cls,sty='')=>`<path class="${cls}" style="${sty}" d="${GL[name]}" transform="translate(${tx.toFixed(2)} ${ty.toFixed(2)}) scale(${k})"/>`;
+  for(let i=0;i<5;i++){g+=`<line class="ln" x1="${xL}" x2="${xR}" y1="${TB-i*sp}" y2="${TB-i*sp}"/><line class="ln" x1="${xL}" x2="${xR}" y1="${BB-i*sp}" y2="${BB-i*sp}"/>`;}
+  g+=`<line class="ln" x1="${xL}" x2="${xL}" y1="${TB-4*sp}" y2="${BB}" style="stroke-width:1.5"/><line class="ln" x1="${xR}" x2="${xR}" y1="${TB-4*sp}" y2="${TB}"/><line class="ln" x1="${xR}" x2="${xR}" y1="${BB-4*sp}" y2="${BB}"/>`;
+  g+=P('treble',xL+4-5*k,TB-80*k,'cl')+P('bass',xL+4-4.8*k,BB-80*k,'cl');
+  [true,false].forEach(tr=>{const st=notes.filter(n=>n.tr===tr).sort((a,b)=>a.d-b.d);let prev=null;
+    st.forEach(n=>{n.x=xN;if(prev&&n.d-prev.d<=1&&prev.x===xN)n.x=xN+hw-.5;prev=n;});});
+  notes.forEach(n=>{const ls=[];
+    if(n.tr){for(let d=28;d>=n.d;d-=2)ls.push(yT(d));for(let d=40;d<=n.d;d+=2)ls.push(yT(d));}
+    else{for(let d=16;d>=n.d;d-=2)ls.push(yB(d));for(let d=28;d<=n.d;d+=2)ls.push(yB(d));}
+    ls.forEach(y=>g+=`<line class="ln" x1="${n.x-rx-3}" x2="${n.x+rx+3}" y1="${y}" y2="${y}" style="opacity:1"/>`);});
+  const cols=[];let xr=xN-rx-2;
+  notes.filter(n=>n.acc).sort((a,b)=>a.y-b.y).forEach(n=>{let c=0;while((cols[c]||[]).some(y=>Math.abs(y-n.y)<sp*2.6))c++;(cols[c]=cols[c]||[]).push(n.y);
+    const nm=ACCN[n.acc],w=GW[nm]*k,right=xr-c*9;g+=P(nm,right-w-100*k,n.y-100*k,'ac');});
+  if(va)g+=`<text class="sym" x="${xN+14}" y="${TB-4*sp-4}" font-size="${sp*1.5}" font-style="italic">8va</text>`;
+  if(vb)g+=`<text class="sym" x="${xN+14}" y="${BB+sp*2}" font-size="${sp*1.5}" font-style="italic">8vb</text>`;
+  notes.forEach(n=>g+=P('noteheadBlack',n.x-rx-100*k,n.y-100*k,'hd'+(n.root?' root':''),fstyle(n.midi%12)));
+  let X0=0,W=xR+4;
+  if(chord){
+    const hi=Math.min(TB-4*sp,...notes.filter(n=>n.tr).map(n=>n.y-(n.acc?sp*2.1:sp*.7)));
+    const fs=sp*2.7,ty=hi-sp*.9,tx=xN,txt=chord.sym+slashTxt(chord);
+    g+=`<text class="sym" x="${tx}" y="${ty}" font-size="${fs}" text-anchor="middle"><tspan class="r">${rootName(chord)}</tspan>${txt}</text>`;
+    top=Math.min(top,ty-fs*.95);const est=(rootName(chord).length+[...txt].length)*fs*.6;X0=Math.min(0,tx-est/2-2);W=Math.max(xR+4,tx+est/2+2)-X0;
+  }
+  // fixed frame so the staff never rescales; very high/low notes and long names simply draw past the edge
+  const st=$('staff');st.setAttribute('viewBox',`0 -54 ${xR+4} 128`);st.innerHTML=g;
+  // same width as the Equal/Pure switch below it, so the drawing centers over the switch
+  const mw=$('modeBtn').offsetWidth;if(mw)st.style.width=(innerWidth<=480?Math.min(mw,170):mw)+'px';
+}
+
+/* ---------- chord-function colors ---------- */
+// hue = chord degree, shade = alteration
+const FCOL={'3':'#4ade80','♭3':'#2dd4bf','5':'#fbbf24','♭5':'#fb923c','♯5':'#fb923c','♭7':'#f87171','7':'#f472b6','𝄫7':'#fda4af',
+  '9':'#60a5fa','♭9':'#a5b4fc','♯9':'#38bdf8','11':'#a3e635','♯11':'#d9f99d','13':'#e879f9','6':'#e879f9','♭13':'#c026d3','♭6':'#c026d3'};
+function fnOf(pc){
+  if(!chord) return null;
+  const iv=(pc-chord.root+12)%12,h=new Set(chord.ivs||[]),sym=chord.sym||'',sev=h.has(10)||h.has(11);
+  switch(iv){
+    case 0:return '1';case 1:return '♭9';case 2:return '9';
+    case 3:return h.has(4)?'♯9':'♭3';case 4:return '3';case 5:return '11';
+    case 6:return (chord.dim||sym.includes('♭5'))?'♭5':'♯11';case 7:return '5';
+    case 8:return (chord.aug||sym.includes('♯5'))?'♯5':(sev?'♭13':'♭6');
+    case 9:return sym.startsWith('°7')?'𝄫7':(sev?'13':'6');
+    case 10:return '♭7';case 11:return '7';
+  }
+}
+const fnLabel=f=>{if(!f||f==='1')return '1';const n=f.replace(/[♭♯𝄫]/g,'');return f+(n==='3'?'rd':'th');};
+const fcol=pc=>{const f=fnOf(pc);return f&&f!=='1'?FCOL[f]:'';};
+const inkFor=c=>{const n=parseInt(c.slice(1),16),r=n>>16&255,g=n>>8&255,b=n&255;return (0.299*r+0.587*g+0.114*b)/255>0.6?'#16130a':'#ffffff';};
+const fstyle=pc=>{const c=fcol(pc);return c?`--fc:${c};--fi:${inkFor(c)};`:'';};
+addEventListener('resize',()=>renderStaff());
+function renderChord(){
+  if(!chord){$('chordName').hidden=false;$('chordName').innerHTML='No notes';$('chordQ').textContent='Tap the wheel or keyboard';
+    $('chips').innerHTML='';return;}
+  $('chordName').hidden=false;$('chordName').innerHTML=`<span class="r">${rootName(chord)}</span>${chord.sym}${slashTxt(chord)}`;
+  $('chordQ').textContent=chord.long+(chord.exact?'':' · best guess');
+  const seen=new Set(),deg=m=>m%12===chord.root?1:(parseInt((fnOf(m%12)||'').replace(/\D/g,''))||99);
+  // stacked like the chord: root at the bottom, then 3rd, 5th, 7th, 9th…
+  const ms=[...S.notes].sort((a,b)=>a-b).filter(m=>!seen.has(m%12)&&seen.add(m%12)).sort((a,b)=>deg(a)-deg(b)||a-b);
+  $('chips').innerHTML=ms.map(m=>{const r=m%12===chord.root;
+    return `<span class="chip${r?' root':''}" style="${fstyle(m%12)}"><b class="fn">${r?'1':fnLabel(fnOf(m%12))}</b> ${spLetter(m)}${r?'':' '+fmtC(offset(m%12))}</span>`}).join('');
+}
+const WHEEL=[0,1,2,3,4,5,6,7,8,9,10,11];
+function renderWheel(){
+  const w=$('wheel');const pcsOn=new Set([...S.notes].map(m=>m%12));
+  let h='';const R1=102,R0=52;
+  WHEEL.forEach((pc,i)=>{
+    const a0=(i*30-15-90)*Math.PI/180,a1=(i*30+15-90)*Math.PI/180,am=(i*30-90)*Math.PI/180;
+    const P=(r,a)=>`${(r*Math.cos(a)).toFixed(2)} ${(r*Math.sin(a)).toFixed(2)}`;
+    const d=`M${P(R0,a0)} L${P(R1,a0)} A${R1} ${R1} 0 0 1 ${P(R1,a1)} L${P(R0,a1)} A${R0} ${R0} 0 0 0 ${P(R0,a0)}Z`;
+    const on=pcsOn.has(pc),root=chord&&pc===chord.root;
+    const tx=P(80,am).split(' '),cx=P(64,am).split(' ');
+    h+=`<g class="seg${on?' on':''}${root?' root':''}" style="${on?fstyle(pc):''}" data-pc="${pc}" tabindex="0" role="button" aria-pressed="${on}" aria-label="${NAMES[pc]}">
+      <path d="${d}"/><text class="nm" x="${tx[0]}" y="${tx[1]}">${NAMES[pc]}</text>
+      ${on?`<text class="cc" x="${cx[0]}" y="${cx[1]}">${root?'root':fmtC(offset(pc)).replace('¢','')}</text>`:''}</g>`;
+  });
+  h+=`<text class="ctr" x="0" y="-5">${chord?rootName(chord)+chord.sym+slashTxt(chord):'–'}</text>
+      <text class="ctr2" x="0" y="12">${S.mode==='pure'?'PURE/JUST':'EQUAL'} · oct ${S.oct}</text>`;
+  w.innerHTML=h;
+}
+const BLACK=new Set([1,3,6,8,10]);
+const KLO=21,KHI=109;let ww=28,kbInit=false;
+const whiteIdx=m=>{let n=0;for(let k=KLO;k<m;k++)if(!BLACK.has(k%12))n++;return n;};
+function sizeKeys(){const ph=innerWidth<=480,w=$('kbwrap').clientWidth-(ph?8:12);if(w<=0)return false;ww=ph?Math.max(18,Math.floor(w/15)):Math.max(22,Math.min(40,Math.floor(w/22)));$('kb').style.height=Math.round(ww*4.6)+'px';$('kb').style.setProperty('--ww',ww+'px');return true;}
+function renderKeys(){
+  const kb=$('kb');let wk='',bk='',wi=0;
+  for(let m=KLO;m<KHI;m++){
+    const on=S.notes.has(m),root=on&&chord&&m%12===chord.root;
+    const cls=(on?' on':'')+(root?' root':'');
+    const lab=on&&!root?fmtC(offset(m%12)):'';
+    const kfn=on&&chord?`<span class="kf">${root?'1':fnOf(m%12)}</span>`:'';
+    if(!BLACK.has(m%12)){
+      wk+=`<div class="wk${cls}" style="${on?fstyle(m%12):''}" data-m="${m}" role="button" aria-pressed="${on}" aria-label="${nn(m)}"><span>${lab}</span>${kfn}<span class="${m%12===0?'c':''}">${m%12===0?nn(m):''}</span></div>`;wi++;
+    } else {
+      bk+=`<div class="bk${cls}" data-m="${m}" role="button" aria-pressed="${on}" aria-label="${nn(m)}" style="${on?fstyle(m%12):''}left:${(wi*ww-ww*.3).toFixed(1)}px;width:${(ww*.6).toFixed(1)}px"><span>${lab}</span>${kfn}</div>`;
+    }
+  }
+  kb.innerHTML=wk+bk;
+}
+function initKeys(){ if(kbInit||S.tab!=='keys'||!sizeKeys()) return; renderKeys(); $('kbwrap').scrollLeft=whiteIdx(48)*ww; kbInit=true; }
+addEventListener('resize',()=>{if(!kbInit)return;const w=$('kbwrap'),first=w.scrollLeft/ww;sizeKeys();renderKeys();w.scrollLeft=first*ww;});
+function renderTabs(){
+  $('tabWheel').setAttribute('aria-selected',S.tab==='wheel');$('tabKeys').setAttribute('aria-selected',S.tab==='keys');
+  $('paneWheel').hidden=S.tab!=='wheel';$('paneKeys').hidden=S.tab!=='keys';
+}
+function renderKeyCtl(){
+  $('keyCtl').hidden=!!chord;
+}
+function render(){
+  chord=analyze();
+  renderMode();renderChord();renderStaff();renderWheel();renderKeys();renderTabs();renderKeyCtl();initKeys();
+  $('playBtn').textContent=S.playing?'Stop drone':'Play drone';
+  save();
+}
+function update(){render();syncVoices();}
+
+/* ---------- interaction ---------- */
+function toggleMidi(m){S.notes.has(m)?S.notes.delete(m):S.notes.add(m);autoplay();update();}
+function togglePc(pc){
+  const has=[...S.notes].filter(m=>m%12===pc);
+  if(has.length) has.forEach(m=>S.notes.delete(m)); else S.notes.add(12*(S.oct+1)+pc);
+  autoplay();update();
+}
+// double-tap a key: undo the first tap and move the chord so its root lands on that pitch
+let lastTap={id:null,t:0,snap:null};
+function tap(id,pc,apply,key){
+  const now=performance.now();
+  if(lastTap.id===id&&now-lastTap.t<350){
+    S.notes=new Set(lastTap.snap);lastTap={id:null,t:0,snap:null};
+    const c=analyze();
+    if(!c){apply();return;}
+    let sh=(pc-c.root+12)%12;if(sh>6)sh-=12;
+    // on the keyboard: move the chord so its lowest root lands exactly on the key that was double-tapped
+    if(key!=null){const rs=[...S.notes].filter(m=>m%12===c.root);if(rs.length)sh=key-Math.min(...rs);}
+    if(sh){const moved=[...S.notes].map(m=>m+sh);
+      if(moved.every(m=>m>=KLO&&m<KHI)) S.notes=new Set(moved);}
+    autoplay();update();return;
+  }
+  lastTap={id,t:now,snap:[...S.notes]};apply();
+}
+function autoplay(){ if(!S.playing && S.notes.size){ensureCtx();S.playing=true;} }
+$('wheel').addEventListener('click',e=>{const g=e.target.closest('.seg');if(g){const pc=+g.dataset.pc;tap('w'+pc,pc,()=>togglePc(pc));}});
+$('wheel').addEventListener('keydown',e=>{const g=e.target.closest('.seg');if(g&&(e.key==='Enter'||e.key===' ')){e.preventDefault();togglePc(+g.dataset.pc)}});
+$('kb').addEventListener('click',e=>{if(noClick)return;const k=e.target.closest('[data-m]');if(k){const m=+k.dataset.m;tap('k'+m,m%12,()=>toggleMidi(m),m);}});
+$('kb').addEventListener('dblclick',e=>e.preventDefault());
+// mouse drag to slide the keyboard (touch uses native swipe)
+let drag=null,noClick=false;const kw=$('kbwrap');
+kw.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'&&e.button===0)drag={x:e.clientX,s:kw.scrollLeft,moved:false};});
+addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-drag.x;if(!drag.moved&&Math.abs(dx)>5){drag.moved=true;kw.classList.add('drag');}if(drag.moved)kw.scrollLeft=drag.s-dx;});
+addEventListener('pointerup',()=>{if(!drag)return;if(drag.moved){noClick=true;setTimeout(()=>noClick=false,0);}drag=null;kw.classList.remove('drag');});
+const TMODES=['easy','normal','expert'];
+const renderTMode=()=>{const i=Math.max(0,TMODES.indexOf(S.tmode));const el=$('tModeBtn');el.dataset.i=i;
+  el.querySelectorAll('span').forEach((sp,j)=>{sp.classList.toggle('on',j===i);sp.setAttribute('aria-checked',j===i);sp.tabIndex=j===i?0:-1;});};
+renderTMode();
+$('tModeBtn').onclick=e=>{const sp=e.target.closest('[data-m]');if(!sp)return;S.tmode=sp.dataset.m;renderTMode();save();};
+$('tModeBtn').onkeydown=e=>{const d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(!d)return;e.preventDefault();
+  S.tmode=TMODES[Math.min(2,Math.max(0,TMODES.indexOf(S.tmode)+d))];renderTMode();save();$('tModeBtn').querySelector('.on').focus();};
+$('modeBtn').onclick=()=>{S.mode=S.mode==='pure'?'equal':'pure';update();};
+$('playBtn').onclick=()=>{ensureCtx();S.playing=!S.playing;update();};
+$('clearBtn').onclick=()=>{S.notes.clear();MIDI.held.clear();MIDI.susHeld.clear();MIDI.vel.clear();MIDI.fast.clear();update();};
+$('room').value=S.room;$('room').onchange=e=>{setRoom(e.target.value);save();};
+$('timbre').value=S.timbre;$('timbre').onchange=e=>{S.timbre=e.target.value;update();};
+$('vol').oninput=e=>{S.vol=+e.target.value;if(master)master.gain.setTargetAtTime(gainVal(),ctx.currentTime,.03);};
+$('a4').value=S.a4;$('a4').onchange=e=>{const v=+e.target.value;if(v>=400&&v<=480){S.a4=v;update();}else e.target.value=S.a4;};
+$('sev').value=S.sev;$('sev').onchange=e=>{S.sev=e.target.value;update();};
+$('tabWheel').onclick=()=>{S.tab='wheel';update();};$('tabKeys').onclick=()=>{S.tab='keys';update();};
+
+$('keySel').innerHTML=NAMES.map((n,i)=>`<option value="${i}">${n}</option>`).join('');
+$('keySel').onchange=e=>{S.keyRoot=+e.target.value;update();};
+
+/* ---------- strobe display ---------- */
+const TM={easy:{green:9,speed:.25,smooth:1.8,hist:13,ok:11,off:25},normal:{green:3,speed:.5,smooth:4,hist:9,ok:8,off:20},expert:{green:1,speed:1,smooth:9,hist:5,ok:5,off:15}};
+const tm=()=>TM[S.tmode]||TM.normal;
+const ST={beat:0,beatT:0,cents:0,sig:-1e9,alpha:.25,ph:[0,0,0,0],last:performance.now()};
+const BANDS=[{h:1,w:46},{h:2,w:32},{h:4,w:22},{h:8,w:15}];
+const cv=$('strobe'),g2=cv.getContext('2d');
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+let COL={on:css('--note')||'#e8b44a',ok:css('--ok')||'#4fd18b'};
+function drawStrobe(now){
+  requestAnimationFrame(drawStrobe);
+  const dpr=devicePixelRatio||1,W=cv.clientWidth,H=cv.clientHeight;
+  if(!W) return;
+  if(cv.width!==Math.round(W*dpr)||cv.height!==Math.round(H*dpr)){cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);}
+  g2.setTransform(dpr,0,0,dpr,0,0);
+  const dt=Math.min(.1,(now-ST.last)/1000);ST.last=now;
+  const live=now-ST.sig<350;
+  ST.beat+=((live?ST.beatT:0)-ST.beat)*Math.min(1,dt*tm().smooth);
+  ST.alpha+=((live?1:.22)-ST.alpha)*Math.min(1,dt*6);
+  const inTune=live&&Math.abs(ST.cents)<tm().green;
+  g2.clearRect(0,0,W,H);
+  const pad=10,gap=6,bh=(H-pad*2-gap*3)/4;
+  BANDS.forEach((b,i)=>{
+    ST.ph[i]=(ST.ph[i]+ST.beat*b.h*dt*tm().speed)%1;
+    const y=pad+i*(bh+gap),per=b.w*2,off=((ST.ph[i]%1)+1)%1*per;
+    g2.fillStyle='rgba(255,255,255,.03)';g2.fillRect(pad,y,W-pad*2,bh);
+    g2.save();g2.beginPath();g2.rect(pad,y,W-pad*2,bh);g2.clip();
+    g2.globalAlpha=ST.alpha;g2.fillStyle=inTune?COL.ok:COL.on;
+    for(let x=pad-per+off;x<W;x+=per) g2.fillRect(x,y,b.w,bh);
+    g2.restore();
+  });
+  const gl=g2.createLinearGradient(0,0,0,H);gl.addColorStop(0,'rgba(255,255,255,.07)');gl.addColorStop(.5,'rgba(255,255,255,0)');gl.addColorStop(1,'rgba(0,0,0,.25)');
+  g2.fillStyle=gl;g2.fillRect(0,0,W,H);
+}
+requestAnimationFrame(drawStrobe);
+
+/* ---------- tuner ---------- */
+let analyser=null,buf=null,hist=[],last=0,micStream=null,micSrc=null;
+function autoCorrelate(b,sr){
+  let size=b.length,rms=0;for(let i=0;i<size;i++)rms+=b[i]*b[i];rms=Math.sqrt(rms/size);
+  if(rms<0.008) return -1;
+  let r1=0,r2=size-1;const th=0.2*Math.max(...b.map(Math.abs));
+  for(let i=0;i<size/2;i++) if(Math.abs(b[i])<th){r1=i;break;}
+  for(let i=1;i<size/2;i++) if(Math.abs(b[size-i])<th){r2=size-i;break;}
+  b=b.subarray(r1,r2);size=b.length;
+  const maxLag=Math.min(size-1,Math.floor(sr/45));const c=new Float32Array(maxLag);
+  for(let l=0;l<maxLag;l++){let s=0;for(let i=0;i<size-l;i++)s+=b[i]*b[i+l];c[l]=s;}
+  let d=0;while(d<maxLag-1&&c[d]>c[d+1])d++;
+  let mv=-1,mp=-1;for(let i=d;i<maxLag;i++)if(c[i]>mv){mv=c[i];mp=i;}
+  if(mp<=0||mp>=maxLag-1) return -1;
+  const x1=c[mp-1],x2=c[mp],x3=c[mp+1],a=(x1+x3-2*x2)/2,bb=(x3-x1)/2;
+  const T0=a?mp-bb/(2*a):mp;return sr/T0;
+}
+// pitch detection runs in a background thread so it never delays keyboard input or sound
+let pdW=null,pdBusy=false;
+function pdWorker(){
+  if(pdW!==null)return pdW;
+  try{const src=autoCorrelate.toString()+';onmessage=e=>postMessage(autoCorrelate(e.data.b,e.data.sr));';
+    pdW=new Worker(URL.createObjectURL(new Blob([src],{type:'text/javascript'})));
+    pdW.onmessage=e=>{pdBusy=false;onPitch(e.data);};pdW.onerror=()=>{pdBusy=false;pdW=false;};}
+  catch(e){pdW=false;}
+  return pdW;
+}
+function tick(now){
+  requestAnimationFrame(tick);
+  if(!analyser||pdBusy||now-last<45) return;last=now;
+  analyser.getFloatTimeDomainData(buf);
+  const w=pdWorker();
+  if(w){const c=buf.slice();pdBusy=true;w.postMessage({b:c,sr:ctx.sampleRate},[c.buffer]);}
+  else onPitch(autoCorrelate(buf,ctx.sampleRate));
+}
+function onPitch(f){
+  if(!analyser) return;
+  if(f<40||f>2500){ if(hist.length){hist.shift();} if(!hist.length){$('tCents').className='cents';} return; }
+  hist.push(f);while(hist.length>tm().hist)hist.shift();
+  const fm=[...hist].sort((a,b)=>a-b)[Math.floor(hist.length/2)];
+  const cents=1200*Math.log2(fm/S.a4)+6900; // absolute cents, midi*100
+  let best=null;
+  for(let n=Math.round(cents/100)-1;n<=Math.round(cents/100)+1;n++){
+    const tgt=n*100+offset(((n%12)+12)%12),dev=cents-tgt;
+    if(!best||Math.abs(dev)<Math.abs(best.dev)) best={n,dev,tgt};
+  }
+  const pc=((best.n%12)+12)%12,oct=Math.floor(best.n/12)-1;
+  $('tNote').innerHTML=`${NAMES[pc]}<sub>${oct}</sub>`;
+  const tc=$('tCents');tc.textContent=fmtC(best.dev);
+  tc.className='cents '+(Math.abs(best.dev)<tm().ok?'ok':Math.abs(best.dev)>tm().off?'off':'');
+  const tHz=S.a4*Math.pow(2,(best.tgt-6900)/1200);
+  ST.beatT=Math.max(-25,Math.min(25,fm-tHz));ST.cents=best.dev;ST.sig=performance.now();
+  const iv=(pc-rootPc()+12)%12;
+  const ctxTxt=S.mode==='pure'
+    ? (iv===0?`root <b>${(chord?rootName(chord):NAMES[rootPc()])}</b>, equal-tempered`:`pure ${IVN[iv]} above <b>${(chord?rootName(chord):NAMES[rootPc()])}</b> (${fmtC(offset(pc))} vs ET)`)
+    : 'equal temperament';
+  $('tMeta').innerHTML=ctxTxt;
+}
+let micUserOff=false,micBusy=false;
+$('micBtn').onclick=async(ev)=>{
+  if(micBusy&&ev)return;
+  if(ev&&analyser)micUserOff=true;
+  const msg=$('micMsg');msg.hidden=true;
+  if(analyser){
+    try{micStream.getTracks().forEach(t=>t.stop());micSrc.disconnect();}catch(e){}
+    analyser=null;micStream=null;micSrc=null;hist=[];ST.sig=-1e9;
+    micOn=false;try{if(navigator.audioSession)navigator.audioSession.type='playback';}catch(e){}
+    if(IOS)setTimeout(resetAudio,150);else if(master)master.gain.setTargetAtTime(gainVal(),ctx.currentTime,.05);
+    $('micBtn').textContent='Start microphone';
+    $('tNote').textContent='–';$('tCents').textContent='±0¢';$('tCents').className='cents';
+    $('tMeta').textContent='';
+    return;
+  }
+  try{
+    ensureCtx();
+    try{if(navigator.audioSession)navigator.audioSession.type='play-and-record';}catch(e){}
+    const stream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:false}});
+    micStream=stream;micSrc=ctx.createMediaStreamSource(stream);analyser=ctx.createAnalyser();analyser.fftSize=4096;
+    buf=new Float32Array(analyser.fftSize);micSrc.connect(analyser);
+    micOn=true;if(master)master.gain.setTargetAtTime(gainVal(),ctx.currentTime,.05);
+    $('micBtn').textContent='Stop microphone';
+    $('tMeta').textContent='Play a sustained note.';
+  }catch(e){
+    try{if(navigator.audioSession)navigator.audioSession.type='playback';}catch(_){}
+    msg.textContent=(e&&e.name&&e.name!=='NotAllowedError'?'Microphone error ('+e.name+'). ':'')+'Microphone access was blocked. Allow microphone access in your browser site settings, then tap Start microphone again. The page must be served over https.';
+    msg.hidden=false;
+  }
+};
+requestAnimationFrame(tick);
+// mic on by default: start right away if already allowed, otherwise on the first tap anywhere
+async function autoMic(){
+  if(analyser||micUserOff||micBusy)return;
+  micBusy=true;try{await $('micBtn').onclick();}finally{micBusy=false;}
+}
+// iPhone/iPad: the mic waits for a tap, because iOS turns playback mono and quieter while any mic is open
+if(!IOS)try{navigator.permissions&&navigator.permissions.query({name:'microphone'}).then(p=>{if(p.state==='granted')autoMic();}).catch(()=>{});}catch(e){}
+const firstTouch=e=>{if(e.target.closest&&e.target.closest('#micBtn'))return;removeEventListener('pointerdown',firstTouch,true);
+  if(ctx&&ctx.state==='suspended')ctx.resume();if(!IOS)autoMic();};
+addEventListener('pointerdown',firstTouch,true);
+
+/* ---------- MIDI keyboard (Web MIDI: Chrome, Edge, Firefox) ---------- */
+// sound first, screen second: voices start the moment a MIDI message arrives; the redraw waits for the next frame
+function midiSchedule(){chord=analyze();syncVoices();if(!MIDI.pend)MIDI.pend=requestAnimationFrame(()=>{MIDI.pend=0;render();});}
+function revealKey(n){
+  if(S.tab!=='keys')return;const now=performance.now();if(now-MIDI.shown<250)return;
+  const k=document.querySelector('[data-m="'+n+'"]'),w=$('kbwrap');if(!k||!w)return;
+  const x=k.offsetLeft;if(x<w.scrollLeft||x>w.scrollLeft+w.clientWidth-ww){MIDI.shown=now;w.scrollTo({left:x-w.clientWidth/2,behavior:'smooth'});}
+}
+function midiNoteOn(n,v){
+  if(n<KLO||n>=KHI)return;
+  ensureCtx();S.playing=true;
+  if(ctx.state!=='running')$('midiStat').textContent='Tap the page once to turn on sound';
+  MIDI.held.add(n);MIDI.susHeld.delete(n);MIDI.vel.set(n,v);MIDI.fast.add(n);
+  if(voices.has(n))killVoice(n);            // re-strike a sustained note
+  S.notes.add(n);midiSchedule();revealKey(n);
+}
+function midiNoteOff(n){
+  MIDI.held.delete(n);
+  if(MIDI.sus){MIDI.susHeld.add(n);return;}
+  S.notes.delete(n);MIDI.vel.delete(n);MIDI.fast.delete(n);midiSchedule();
+}
+function midiSustain(on){
+  MIDI.sus=on;if(on)return;
+  MIDI.susHeld.forEach(n=>{if(!MIDI.held.has(n)){S.notes.delete(n);MIDI.vel.delete(n);MIDI.fast.delete(n);}});
+  MIDI.susHeld.clear();midiSchedule();
+}
+function onMidi(e){
+  const [st,d1,d2]=e.data,c=st&0xf0;
+  if(c===0x90&&d2>0)midiNoteOn(d1,d2);
+  else if(c===0x80||(c===0x90&&d2===0))midiNoteOff(d1);
+  else if(c===0xB0){
+    if(d1===64)midiSustain(d2>=64);
+    else if(d1===120||d1===123){MIDI.held.clear();MIDI.susHeld.clear();MIDI.vel.clear();MIDI.fast.clear();S.notes.clear();midiSchedule();}
+  }
+}
+// one input at a time from the menu; "All keyboards" skips control surfaces, whose buttons send notes
+const MIDISKIP=/mcu|mackie|hui|control surface/i;
+let midiPick=null;try{midiPick=localStorage.getItem('rr-midi-in');}catch(e){}
+// report the browser's own output delay (buffer + device), so a slow audio route is easy to spot
+function showDelay(){
+  if(!ctx||!MIDI.access)return;const ms=Math.round(((ctx.baseLatency||0)+(ctx.outputLatency||0))*1000);
+  if(ms&&!$('midiStat').textContent.startsWith('No '))$('midiStat').textContent='Sound delay ≈ '+ms+' ms';
+}
+function bindMidi(){
+  const ins=[];MIDI.access.inputs.forEach(i=>{i.onmidimessage=null;if(i.state!=='disconnected')ins.push(i);});
+  const sel=$('midiIn'),pick=ins.find(i=>i.name===midiPick);
+  sel.textContent='';const all=document.createElement('option');all.value='';all.textContent='All keyboards';sel.appendChild(all);
+  ins.forEach(i=>{const o=document.createElement('option');o.value=i.name;o.textContent=i.name;sel.appendChild(o);});
+  sel.value=pick?pick.name:'';$('midiInCtl').hidden=!ins.length;
+  ins.forEach(i=>{if(pick?i===pick:!MIDISKIP.test(i.name))i.onmidimessage=onMidi;});
+  const st=$('midiStat');st.textContent=ins.length?'':'No MIDI keyboard found. Plug one in.';
+  if(ins.length)setTimeout(showDelay,800);
+  if(ins.length&&ctx)wave(S.timbre);$('midiBtn').classList.toggle('on',!!ins.length);$('retuneCtl').hidden=!ins.length;
+}
+$('midiIn').onchange=e=>{midiPick=e.target.value;try{localStorage.setItem('rr-midi-in',midiPick)}catch(_){}
+  MIDI.held.clear();MIDI.susHeld.clear();MIDI.vel.clear();MIDI.fast.clear();MIDI.sus=false;S.notes.clear();midiSchedule();bindMidi();};
+async function connectMidi(quiet){
+  if(!navigator.requestMIDIAccess){
+    if(!quiet)$('midiStat').textContent='MIDI keyboards work in Chrome, Edge or Firefox. On iPhone or iPad, use the Web MIDI Browser app.';
+    return;
+  }
+  try{MIDI.access=await navigator.requestMIDIAccess({sysex:false});MIDI.access.onstatechange=bindMidi;bindMidi();}
+  catch(e){if(!quiet)$('midiStat').textContent='MIDI access was blocked. Allow it in the browser’s site settings.';}
+}
+$('midiBtn').onclick=()=>{ensureCtx();connectMidi(false);};
+// phones/tablets without MIDI support (all iPhone browsers): hide the button rather than show a dead end
+if(!navigator.requestMIDIAccess&&matchMedia('(pointer:coarse)').matches){$('midiBtn').hidden=true;$('midiStat').hidden=true;}
+$('retune').value=S.retune;$('retune').onchange=e=>{S.retune=e.target.value;save();update();};
+addEventListener('pointerdown',()=>{if(ctx&&ctx.state==='suspended')ctx.resume();if(MIDI.access)bindMidi();},true);
+try{navigator.permissions&&navigator.permissions.query({name:'midi'}).then(p=>{if(p.state==='granted')connectMidi(true);}).catch(()=>{});}catch(e){}
+update();
+})();
+</script>
+<script>if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}));}</script>
+</body>
+</html>
