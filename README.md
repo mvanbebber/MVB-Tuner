@@ -1,4 +1,4 @@
-# MVB Tuner — pureintonation.com
+# Pure Intonation Tuner — pureintonation.com
 
 Free pure (just) intonation tuner and chord drone by Michael Van Bebber.
 Single-file web app (`index.html`) plus a service worker, icons and room impulse responses (`ir/`).

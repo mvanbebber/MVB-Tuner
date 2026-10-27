@@ -1,4 +1,4 @@
-# Working on MVB Tuner
+# Working on Pure Intonation Tuner (formerly MVB Tuner)
 
 - Everything lives in `index.html` (CSS + one inline script). No build step; Netlify serves the repo root from `main`.
 - One build only, always with MIDI keyboard support.
