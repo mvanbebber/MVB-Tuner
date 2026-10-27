@@ -249,6 +249,8 @@ main{gap:12px}
 .support .heart{width:18px;height:18px;fill:#e5484d}
 /* tablet and laptop: the app spans the full window; reading text stays a comfortable width, centered */
 @media (min-width:481px){.app{max-width:none;padding-inline:20px}.learn,.site-foot{justify-self:center;width:100%;max-width:760px}}
+/* laptop/desktop: card and keyboard span the window, everything else stays in a centered column as before */
+@media (min-width:481px) and (pointer:fine){.panel>:not(#paneKeys){width:100%;max-width:728px;justify-self:center;box-sizing:border-box}}
 /* iPad and other tablets (touch screens): card runs edge to edge, no empty margin around it */
 @media (min-width:481px) and (pointer:coarse){.app{padding-inline:0;padding-top:0}.app>main>.panel:first-child{border-radius:0;border-left:0;border-right:0;border-top:0}.learn,.site-foot{padding-inline:20px}#paneKeys .kbwrap{margin-inline:-16px;max-width:none;width:calc(100% + 32px);box-sizing:border-box;border-radius:0;border-left:0;border-right:0}}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -424,7 +426,7 @@ main>.panel:last-child{border-top:1px solid var(--line);border-top-left-radius:0
 <footer class="site-foot">
   <p>Built by <strong>Michael Van Bebber</strong>, trumpeter, pianist, singer and educator in Seattle. Also by MVB: <a href="https://vibratotrainer.com" rel="noopener">Vibrato Trainer</a>.</p>
   <p class="fine">Instrument wavetables and room impulse responses: <a href="https://github.com/GoogleChromeLabs/web-audio-samples" rel="noopener">Google Chrome Labs web-audio-samples</a> (Apache 2.0).</p>
-  <p class="fine">Version 68 · © 2026 Michael Van Bebber. All rights reserved.</p>
+  <p class="fine">Version 69 · © 2026 Michael Van Bebber. All rights reserved.</p>
 </footer>
 </div>
 <script>
