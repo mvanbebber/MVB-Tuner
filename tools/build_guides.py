@@ -244,7 +244,7 @@ def page(p):
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&display=swap">
-<link rel="stylesheet" href="/guides.css?v=74">
+<link rel="stylesheet" href="/guides.css?v=75">
 <script type="application/ld+json">{json.dumps(ld,ensure_ascii=False)}</script>
 </head>
 <body>
@@ -254,7 +254,7 @@ def page(p):
 <h1>{p['h1']}</h1>
 <p class="lede">{p['lede']}</p>
 <p class="hero"><a class="cta" href="/">Open Pure Intonation Tuner – free</a></p>
-<img class="shot" src="/app-screenshot.jpg" alt="Pure Intonation Tuner playing a C7 chord in pure intonation: E −14¢, G +2¢, B♭ −31¢ on the keyboard and grand staff" width="1590" height="780" loading="lazy">
+<img class="shot" src="/app-screenshot.jpg?v=75" alt="Pure Intonation Tuner: a C7 chord tuned pure (E −14¢, G +2¢, B♭ −31¢) and the strobe tuner standing still, green, on a pure major third" width="1590" height="1152" loading="lazy">
 {p['body']}
 <section class="faq"><h2>Questions</h2>{faq_html}</section>
 <div class="band"><p>Free in your browser. No account, no download.</p><a class="cta" href="/">Open the tuner</a></div>
