@@ -5,3 +5,4 @@
 - Every release: bump the version in the footer line ("Version NN · © 2026 Michael Van Bebber…") and the cache name in `sw.js` (`mvb-tuner-vNNm`).
 - Test through a local server (`python3 -m http.server`), not file:// — impulse responses in `ir/` fail to load from disk.
 - The owner wants short, plain replies and American spelling.
+- Guide (landing) pages live in folders like `/strobe-tuner/`. Edit their text in `tools/build_guides.py`, then run `python3 tools/build_guides.py` to regenerate them; add new ones to `sitemap.xml` and the Guides list in `index.html`.
