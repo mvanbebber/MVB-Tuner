@@ -193,7 +193,7 @@ strong{color:var(--fg);font-weight:600}
 ul,ol{padding-left:1.2em}
 li{margin:6px 0}
 .hero{margin:22px 0 8px}
-.shot{display:block;width:100%;border-radius:14px;border:1px solid var(--line);margin:22px 0}
+.shot{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line);margin:22px 0}
 .tablewrap{overflow-x:auto}
 table{border-collapse:collapse;width:100%;font-size:.95rem;margin:8px 0}
 th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
@@ -244,7 +244,7 @@ def page(p):
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&display=swap">
-<link rel="stylesheet" href="/guides.css">
+<link rel="stylesheet" href="/guides.css?v=74">
 <script type="application/ld+json">{json.dumps(ld,ensure_ascii=False)}</script>
 </head>
 <body>
